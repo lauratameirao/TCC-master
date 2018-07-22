@@ -1,0 +1,87 @@
+% \chapter{Metodologia}
+%
+% \section{Desenvolvimento geral}
+%
+% A criação do simulador em questão deve seguir algumas etapas de modo a adequá-lo aos requisitos iniciais.
+% Essas etapas são baseadas na MDA, mas com algumas modificações para permitir o trabalho com o Simulink.
+%
+%   \subsection{CIM}
+%
+%   Em um primeiro momento, deve-se definir explicitamente quais as especificações dos códigos e modelos a serem criados.
+%   Essa definição será usada como base para todo o projeto.
+%
+%   A princípio, espera-se que os requisitos sejam feitos em um \emph{software} específico para a Engenharia de Sistemas.
+%   Entretanto, eles serão definidos aqui em linguagem natural (português), sem o formalismo técnico proporcionado pelo \emph{software}, mas com os devidos cuidados.
+%   O resultado final não deve ser alterado, uma vez que o formalismo serviria apenas para agilizar o processo, mantendo a robustez das especificações.
+%
+%   \subsection{PIM}
+%
+%   O PIM deve conter todas as informações necessárias para a implementação do que se pretende modelar.
+%   Nessa etapa do projeto, serão criados alguns diagramas UML de modo a visualizar com mais detalhes o que foi definido na etapa do CIM.
+%
+%   \begin{description}
+%     \item[Diagrama de Componentes:]
+%     Representa módulos do \emph{software} em questão.
+%     Esses módulos podem possuir portas, implementar ou utilizar interfaces.
+%     As interfaces contêm métodos bem definidos, e conectam diferentes componentes.
+%     Cada componente pode ser composto por diferentes classes.
+%     Este diagrama é bastante útil para identificar os módulos funcionais do programa.
+%
+%     \item[Diagrama de Implantação:]
+%     Representa a estrutura física do programa, ou seja, onde cada parte será executada.
+%     É possível modelar tanto o \emph{hardware} quanto os ambientes de execução dos programas, como por exemplo máquinas virtuais.
+%     Também é possível criar conexões entre partes do modelo, e importar componentes para definir onde cada um atuará.
+%     Este diagrama serve para ter-se uma ideia concreta da instalação de cada parte do \emph{software}.
+%
+%     \item[Diagrama de Classes:]
+%     Quando se utiliza a programação orientada objeto, ideal para simulações, é possível representar cada classe (descrição de cada tipo de objeto) neste diagrama.
+%     As classes são bastante detalhadas, contendo atributos e operações, além de relações com outras classes.
+%     Isso permite inclusive a geração automática de código para este diagrama, que fornece uma descrição bastante completa da execução.
+%   \end{description}
+%
+%   \subsection{Modelo Simulink}
+%
+%   Uma vez que a estrutura geral do código já está definida, fazem-se então os modelos Simulink necessários para a simulação.
+%   Grande parte da simulação será aproveitada dos modelos criados em sala de aula no curso de CARLBERTO, na graduação em ITA.
+%   Nessa etapa, deve-se prestar atenção especial à TDD.
+%
+%   \subsection{Códigos}
+%
+%   Enquanto se desenvolve o modelo Simulink, pretende-se escrever o mínimo possível de código.
+%   Entretanto, todo código que deve ser escrito passará por testes definidos pela TDD.
+%
+%
+% \section{Versões do simulador}
+%
+% Tendo em vista um desenvolvimento linear do simulador HITL, propõem-se algumas etapas anteriores, mais simples, mas que fazem parte do desenrolar do produto final.
+% As etapas são listadas a seguir.
+%
+%   \subsection{Versão 0: Simulador SITL}
+%
+%   Após a conclusão das etapas do CIM e do PIM, um modelo Simulink é criado baseando-se nos dados gerados nos modelos.
+%   Pretende-se utilizar o minimo possível de \emph{toolboxes} do Simulink, uma vez que cada \emph{toolbox} representa um custo adicional.
+%
+%   O simulador deve exibir dados que permitam visualizar o que acontece durante sua execução.
+%   Ainda, é desejável a implementação de uma simulação \emph{soft real time}, ou seja, que simule uma situação de voo com um tempo de simulação igual ao tempo absoluto da situação simulada.
+%   Não há a necessidade de analisar a fundo o tempo de execução de cada parte do programa, pois atrasos de execução não teriam implicações críticas para o resultado da simulação.
+%
+%   TESTES?
+%
+%   \subsection{Versão 1: Simulador em malha aberta}
+%
+%   A partir da simulação SITL e da experiência adquirida no seu processo de construção, pretende-se revisar o CIM e adaptá-lo para considerar uma simulação HITL em malha aberta.
+%   Logo após, adapta-se o PIM e, posteriormente, o modelo Simulink para que sigam as novas especificações.
+%
+%   A comunicação com o dispositivo externo deve ser feita da maneira mais modular possível.
+%   A modularidade permite que a alteração entre uma versão e outra seja facilitada.
+%   Ela permite também que o sistema seja mais facilmente compreendido por terceiros.
+%
+%   O simulador será projetado para atuadores fornecidos pela empresa SIATT.
+%   Ele será testado, portanto, com estes atuadores, que recebem e enviam mensagens pelo protocolo conhecido como Barramento CAN.
+%   Apenas serão consideradas, para esta fase, as mensagens enviadas aos atuadores.
+%
+%   \subsection{Versão 2: Simulador em malha fechada}
+%
+%   Uma segunda revisão dos requisitos pode então ser feita nos mesmos moldes da primeira revisão.
+%   Porém, esta versão considera também as mensagens que serão recebidas pelos atuadores.
+%   Testes serão realizados a fim de analisar a estabilidade da malha.

@@ -1,0 +1,59 @@
+\providecommand{\abntreprintinfo}[1]{%
+ \citeonline{#1}}
+\setlength{\labelsep}{0pt}\begin{thebibliography}{}
+\providecommand{\abntrefinfo}[3]{}
+\providecommand{\abntbstabout}[1]{}
+\abntbstabout{v-1.9.6 }
+
+\bibitem[Bailie J;~Ley e Pasricha 1997]{nasa1997guidelines}
+\abntrefinfo{Bailie J;~Ley e Pasricha}{BAILIE J;~LEY; PASRICHA}{1997}
+{BAILIE J;~LEY, R.; PASRICHA, A. A summary and review of composite laminate
+  design guidelines.
+\emph{National Aeronautics and Space Administration}, Final, n.~22, 1997.}
+
+\bibitem[Chamis 1969]{chamis1969buckling}
+\abntrefinfo{Chamis}{CHAMIS}{1969}
+{CHAMIS, C.~C. Buckling of anisotropic composite plates.
+\emph{Journal of the Structural Division}, ASCE, v.~95, n.~10, p. 2119--2140,
+  1969.}
+
+\bibitem[Daniel 2006]{daniel2006engineering}
+\abntrefinfo{Daniel}{DANIEL}{2006}
+{DANIEL, I. \emph{Engineering Mechanics of Composite Materials}. [S.l.]: Oxford
+  University Press, 2006.}
+
+\bibitem[Herencia, Weaver e Friswell 2007]{herencia2007optimization}
+\abntrefinfo{Herencia, Weaver e Friswell}{HERENCIA; WEAVER; FRISWELL}{2007}
+{HERENCIA, J.~E.; WEAVER, P.~M.; FRISWELL, M.~I. Optimization of long
+  anisotropic laminated fiber composite panels with t-shaped stiffeners.
+\emph{AIAA journal}, v.~45, n.~10, p. 2497--2509, 2007.}
+
+\bibitem[Kassapoglou 2013]{kassapoglou2013design}
+\abntrefinfo{Kassapoglou}{KASSAPOGLOU}{2013}
+{KASSAPOGLOU, C. \emph{Design and analysis of composite structures: with
+  applications to aerospace structures}. [S.l.]: John Wiley \& Sons, 2013.}
+
+\bibitem[Miki 1991]{miki1991optimum}
+\abntrefinfo{Miki}{MIKI}{1991}
+{MIKI, M. Optimum design of laminated composite plates using lamination
+  parameters.
+\emph{AIAA Paper}, 1991.}
+
+\bibitem[MIL-HDBK-17-3F 2002]{mil2002handbook}
+\abntrefinfo{MIL-HDBK-17-3F}{MIL-HDBK-17-3F}{2002}
+{MIL-HDBK-17-3F. \emph{MIL-HDBK-17-3F Composite Materials Handbook - Volume 3:
+  Polymer Matrix Composites, Materials Usage, Design and Analyses}. [S.l.]: US
+  Department of Defense, 2002.}
+
+\bibitem[Niu 1992]{niucomposite}
+\abntrefinfo{Niu}{NIU}{1992}
+{NIU, M. C.-Y. Composite airframe structures.
+\emph{Hong Kong Conmilit Press Ltd}, 1992.}
+
+\bibitem[Schmit e Farshi 1973]{schmit1973optimum}
+\abntrefinfo{Schmit e Farshi}{SCHMIT; FARSHI}{1973}
+{SCHMIT, L.; FARSHI, B. Optimum laminate design for strength and stiffness.
+\emph{International Journal for Numerical Methods in Engineering}, Wiley Online
+  Library, v.~7, n.~4, p. 519--536, 1973.}
+
+\end{thebibliography}
