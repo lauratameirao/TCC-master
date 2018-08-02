@@ -33,6 +33,13 @@
 {KASSAPOGLOU, C. \emph{Design and analysis of composite structures: with
   applications to aerospace structures}. [S.l.]: John Wiley \& Sons, 2013.}
 
+\bibitem[Liu, Haftka e Trompette 2004]{liu2004maximization}
+\abntrefinfo{Liu, Haftka e Trompette}{LIU; HAFTKA; TROMPETTE}{2004}
+{LIU, B.; HAFTKA, R.; TROMPETTE, P. Maximization of buckling loads of composite
+  panels using flexural lamination parameters.
+\emph{Structural and Multidisciplinary Optimization}, Springer, v.~26, n.~1-2,
+  p. 28--36, 2004.}
+
 \bibitem[Miki 1991]{miki1991optimum}
 \abntrefinfo{Miki}{MIKI}{1991}
 {MIKI, M. Optimum design of laminated composite plates using lamination
@@ -55,5 +62,10 @@
 {SCHMIT, L.; FARSHI, B. Optimum laminate design for strength and stiffness.
 \emph{International Journal for Numerical Methods in Engineering}, Wiley Online
   Library, v.~7, n.~4, p. 519--536, 1973.}
+
+\bibitem[Tsai e Pagano 1968]{tsai1968invariant}
+\abntrefinfo{Tsai e Pagano}{TSAI; PAGANO}{1968}
+{TSAI, S.~W.; PAGANO, N.~J. \emph{Invariant properties of composite materials.}
+[S.l.], 1968.}
 
 \end{thebibliography}

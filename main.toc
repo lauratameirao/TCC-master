@@ -15,12 +15,12 @@
 \contentsline {subsection}{\numberline {3.3.1}Rela\IeC {\c c}\IeC {\~o}es entre deforma\IeC {\c c}\IeC {\~o}es e deslocamentos}{22}{subsection.3.3.1}
 \contentsline {subsection}{\numberline {3.3.2}Rela\IeC {\c c}\IeC {\~o}es entre tens\IeC {\~o}es e deforma\IeC {\c c}\IeC {\~o}es de uma l\IeC {\^a}mina dentro de um laminado}{24}{subsection.3.3.2}
 \contentsline {subsection}{\numberline {3.3.3}Rela\IeC {\c c}\IeC {\~o}es envolvendo for\IeC {\c c}as e momentos resultantes}{25}{subsection.3.3.3}
-\contentsline {section}{\numberline {3.4}Par\IeC {\^a}metros de lamina\IeC {\c c}\IeC {\~a}o}{27}{section.3.4}
-\contentsline {section}{\numberline {3.5}Pr\IeC {\'a}ticas de projeto adotadas}{27}{section.3.5}
-\contentsline {subsection}{\numberline {3.5.1}Laminados sim\IeC {\'e}tricos}{27}{subsection.3.5.1}
-\contentsline {subsection}{\numberline {3.5.2}Laminados balanceados}{28}{subsection.3.5.2}
-\contentsline {subsection}{\numberline {3.5.3}Regra dos 10\%}{29}{subsection.3.5.3}
+\contentsline {section}{\numberline {3.4}Par\IeC {\^a}metros de lamina\IeC {\c c}\IeC {\~a}o}{28}{section.3.4}
+\contentsline {section}{\numberline {3.5}Pr\IeC {\'a}ticas de projeto adotadas}{30}{section.3.5}
+\contentsline {subsection}{\numberline {3.5.1}Laminados sim\IeC {\'e}tricos}{31}{subsection.3.5.1}
+\contentsline {subsection}{\numberline {3.5.2}Laminados balanceados}{31}{subsection.3.5.2}
+\contentsline {subsection}{\numberline {3.5.3}Regra dos 10\%}{32}{subsection.3.5.3}
 \vspace {\cftbeforechapterskip }
 \vspace {\cftbeforechapterskip }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
-\contentsline {chapter}{\uppercase {Refer\^encias}}{31}{section*.11}
+\contentsline {chapter}{\uppercase {Refer\^encias}}{35}{section*.11}
