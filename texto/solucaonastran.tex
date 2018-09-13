@@ -1,0 +1,83 @@
+\chapter[Otimização]{Otimização}
+
+\section{Introdução}
+A otimização estrutural se refere a busca de um design estrutural que seja ótimo, ou "o melhor", variando alguns de seus parâmetros estruturais que são pré-estabelecidos. Durante a busca deste design ótimo, o projeto é guiado para satisfazer alguns limites operacionais que são impostos em relação às respostas da estrutura e também por limites nos valores dos parâmentros estruturais que são variados. Segundo \cite{moore1994msc}, a capacidade de otimização de projeto presente no \emph{software} utilizado, \emph{MSC Nastran}, se dá pelo fato de essa otimização ser baseada em uma análise de sensibilidade.
+
+A capacidade de otimização de projeto presente no \emph{software MSC Nastran} é beneficiada, significantemente, devido a análise de sensibilidade. A análise de sensibilidade do projeto computa taxas de variação das respostas da estrutura em relação a variação dos parâmetros de projeto. Esses parâmetros de projeto, ou variáveis de projeto, podem ser espessura de um elemento de placa, comprimento de elemento de barra, raio de perfuração em uma estrutura, propriedades dos materiais, entre outros. No caso a otimização conduzida neste trabalho, os parâmetros de projetos são relacionados à espessura dos elementos de placas e às propriedades dos materias compostos. Essas taxas de variações, ou derivadas parciais na linguagem de cálculo, são chamadas na otimização de coeficientes de sensibilidade de projeto.
+
+Os coeficientes de sensibilidade de projeto são computados explicitamente no \emph{MSC Nastran} e são de extrema importância no processo de otimização, visto que eles podem ser utilizados para prever como uma variação de projeto vai alterar uma resposta da estrutura. Quando estes coeficientes de sensibilidade são aplicados na solução de um otimizador, eles aumentam a eficiência do mesmo, visto que durante a busca para o melhor resultado, o algoritmo sabe não somente o estado atual do projeto, mas também tem uma ideia de qual direção utilizar para buscar o melhor projeto. A capacidade básica de otimização de projeto do \emph{MSC Nastran} depende da existência de informação disponível sobre a sensibilidade do projeto, visto que a otimização não pode ser realizada sem isso.
+
+A utilização de uma otimização se deu com o intuito de encontrar um design ótimo para a estrutura escolhida, além de automatizar o processo utilizando um processo racional e com uma abordagem matemática. A utilização de otimizações se dá em situações como as seguintes:
+\begin{enumerate}
+  \item Produção de projetos mais eficientes com maiores margens de segurança;
+  \item Realização de estudos de variabilidade;
+  \item Auxílio em estudos de sensibilidade de projeto;
+  \item Validação de dados de testes e resultados de análises (correspondência de modelo).
+\end {enumerate}
+No caso deste trabalho, o otimizador será primeiramente validado, sendo feita uma otimização de um painel reforçado em material metálico e então uma comparação com a teoria. E em sequeência, após a validação deste otimizador, ele será utiizado para a obtenção de um projeto ótimo para um painel reforçado em material composto.
+
+\subsection{Análise vs. Otimização de um projeto}
+Há algumas diferenças conceituais entre a otmização e a análise de um projeto, ainda que elas possam ser vistas como complementares.
+
+ Durante a realização de uma análise, é criada uma idealização matemática de um sistema físico visando obter respostas de determinadas questões. A clase dessas respostas obtidas depende do tipos de análise que se está buscando, já a precisão dessas respostas, depende da qualidade do modelo e do conhecimento geral do verdadeiro sistema. Portanto, a definição do tipo de elemento finito utilizado, das representações da condições de contorno, dos carregamentos e da malha utilizada, representam um papel extremamente importante em determinar quão bem o modelo está para representar a estrutura física. Logo, o objetivo é obter uma previsão precisa das respostas que são esperadas da estrutura real.
+
+ Em contraste a isso, tem-se o modelo de otimização, no qual idealiza-se mudanças que podem ser feitas na estrutura para melhorar o seu desempenho ou resposta a uma determinada característica. Portanto, para isso, deve-se primeiramente definir o que deseja-se melhorar no projeto, podendo ser como objetivo, por exemplo, uma estrutura com o menor peso possível ou com maior rigidez. Deve-se então estabelecer limites nos quais as variáveis podem flutuar e também expressões de máximos permissíveis, por exemplo.
+
+ A maior diferença portanto entre um modelo de análise e um modelo de otimização é que a análise lida com "a solução", enquanto que a otimização lida com "uma solução". Isto é, durante a performance de uma análise, encontra-se uma única solução, já na perfomance de uma otimização mais de uma solução é possível de ser encontrada. Matematicamente, durante uma otimização o espaço de solução pode conter um mínimo local, mas não necessariamente um mínimo global. Portanto, dependendo das condições iniciais setadas no problema pode-se obter uma solução, já caso essas condições iniciais se alterem, pode-se obter uma solução diferente da obtida anteriormente.
+
+ \subsection{Princípios básicos de uma Otimização Numérica}
+ \subsubsection{Otimização Numérica - Visão geral}
+De acordo com \cite{moore1994msc} a otimização pode ser visto como a seguinte "tarefa de projeto": encontrar um ponto mais baixo em um terreno adjacente. Supõe-se que um indivíduo esteja situado do lado de uma montanha e que deseja encontrar o próximo ponto de menor elevação, este seria o "objetivo". A localização de qualquer ponto será quantificada utilizando as suas coordenadas, logo essas serão as "variáveis de projeto". Supõe-se, também, que existem algumas cercas no terreno, que forçam a restição do espaço de busca ser dentro do território cercado, logo as cercas são as "restrições" que limitam o "espaço de projeto".
+
+Negligenciando a presença de mínimos locais, ou seja, tendo somente um ponto que pode ser considerado como ótimo, achar o ponto de menor elevação dentro deste terreno não é um problema muito grande para um indivíduo comum. Visto que tudo que ele precisará fazer é olhar para a região, e com uma boa perspectiva, apontar qual o ponto mínimo.
+No entanto, se pensarmos em um indíviduo que não possui a capacidade de enxergar, o processo de decisão não será tão simples, e isto é basicamente o que ocorre com um otimizador numérico.
+
+Se tratando de um sistema computacional, a determinação do ponto próximo com menor elevação, ou seja, o valor da função objetivo, deverá ser feita utilizando análises numéricas. Portanto, necessita-se de um método sistemático para solucionar tais problemas e para isso tem-se diversas técnicas, chamadas de algoritmos de otimização numérica. Genericamente, os métodos de otimização numérica visam determinar a "direção da busca", o que permite encontrar um ótimo que obedeça as restrições estabelecidas.
+
+Visando encontrar a "direção de busca", deve-se determinar o valor do gradiente da função objetivo e então, utilizar essa informação para estabelecer uma provável direção. No exemplo citado, de encontrar um ponto próximo com menor elevação, mesmo para um indivíduo privado de vista, é possível encontrar a direção dando passos pequenos, por exemplo, até encontrar as cercas como restrições e ir estabelecendo as diferenças nas elevações de cada passada. Este tipo de otimização que utiliza a ideia do gradiente é chamada, portanto, de método baseado no gradiente. E dentro deste método a ideia é repetir o processo de busca até que não seja mais possível reduzir a função objetivo.
+
+\subsubsection{Otimização Numérica - Visão quantitativa}
+Em uma visão quantitativa de uma otimização numérica, tem-se portanto, que deve-se encontrar o valor de \emph{\textbf{X}} que minimize ou maximize, dependendo do problema, a função objetivo \emph{F(\textbf{X})} submetida à:
+
+\begin{enumerate}
+\item Restrições de desigualdade
+\begin{equation} \label{otimization_1}
+\begin{split}
+g_{j}(\textbf{X})\leq0 \\
+j = 1, ..., n_{g}\\
+\end{split}
+\end{equation}
+\item Restrições de igualdade
+\begin{equation} \label{otimization_2}
+\begin{split}
+h_{k}(\textbf{X})=0 \\
+k = 1, ..., n_{h}\\
+\end{split}
+\end{equation}
+\item Restrições laterais
+\begin{equation} \label{otimization_3}
+\begin{split}
+x_{i}^L \leq x_{i}\leq x_{i}^U  \\
+i = 1, ..., n\\
+\end{split}
+\end{equation}
+\item Variáveis de projeto
+\begin{equation} \label{otimization_4}
+\textbf{X} = {x_{1}, x_{2}, ..., x_{n}}
+\end{equation}
+
+\end {enumerate}
+
+Nesta notação abordada, tem-se que \textbf{X}, em maiuscúlo e negrito, é um vetor, enquanto as outras variáveis, em minúsculo, são membros deste vetor. E tem-se como função objetivo a quantidade escalar a ser minimizada. As restrições laterais são utilizadas como as variáveis de projeto para limitar a região de busca, e as restrições de desigualdade, convencionamente, são expressas na forma de menor ou igual a zero. E as restrições de igualdade, caso existam, devem satisfazer o \emph{design} "ótimo".
+
+\subsection{Busca numérica por um ótimo}
+A solução de otimização utilizada pelo \emph{software MSC Nastran} durante o desenvolvimento deste estudo é referenciada como: Método baseado no gradiente.
+
+O primeiro passo, em um procedimento numérico, é determinar a direção de busca. Este procedimento de busca é repetido até o ponto no qual não consegue obter melhorias na função objetivo sem violar as restrições. Em um contexto de otimização estrutural, a situação pode-se complicar sendo considerada com inviável (uma ou mais restrições são violadas), ou crítica (ponto situado exatamente nas restrições).
+
+A ideia de utilizar o gradiente como base para a otimização, ou seja, dar pequenos passos nas diversas direções das variáveis de projeto, corresponde exatamente ao conceito matemático de diferenças finitas, que é dado por:
+
+\begin{equation} \label{otimization_5}
+\frac{d\emph{f}(x)}{dx} = \dfrac{\emph{f}(x + \Delta x)-f(x)}{\Delta x}
+\end{equation}
+Onde ${\Delta x}$ representa as pequenas variações, pequenos passos, dados na direção \emph{x}.
