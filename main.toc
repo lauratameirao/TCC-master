@@ -20,7 +20,12 @@
 \contentsline {subsection}{\numberline {3.5.1}Laminados sim\IeC {\'e}tricos}{31}{subsection.3.5.1}
 \contentsline {subsection}{\numberline {3.5.2}Laminados balanceados}{31}{subsection.3.5.2}
 \contentsline {subsection}{\numberline {3.5.3}Regra dos 10\%}{32}{subsection.3.5.3}
+\setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
+\contentsline {chapter}{\chapternumberline {4}\MakeTextUppercase {Otimiza\IeC {\c c}\IeC {\~a}o}}{35}{chapter.4}
+\contentsline {section}{\numberline {4.1}Introdu\IeC {\c c}\IeC {\~a}o}{35}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}An\IeC {\'a}lise vs. Otimiza\IeC {\c c}\IeC {\~a}o de um projeto}{36}{subsection.4.1.1}
+\contentsline {subsection}{\numberline {4.1.2}Princ\IeC {\'\i }pios b\IeC {\'a}sicos de uma Otimiza\IeC {\c c}\IeC {\~a}o Num\IeC {\'e}rica}{37}{subsection.4.1.2}
 \vspace {\cftbeforechapterskip }
 \vspace {\cftbeforechapterskip }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
-\contentsline {chapter}{\uppercase {Refer\^encias}}{35}{section*.11}
+\contentsline {chapter}{\uppercase {Refer\^encias}}{39}{section*.11}
