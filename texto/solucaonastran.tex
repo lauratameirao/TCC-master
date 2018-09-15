@@ -80,4 +80,29 @@ A ideia de utilizar o gradiente como base para a otimização, ou seja, dar pequ
 \begin{equation} \label{otimization_5}
 \frac{d\emph{f}(x)}{dx} = \dfrac{\emph{f}(x + \Delta x)-f(x)}{\Delta x}
 \end{equation}
-Onde ${\Delta x}$ representa as pequenas variações, pequenos passos, dados na direção \emph{x}.
+Onde ${\Delta x}$ representa as pequenas variações, pequenos passos, dados na direção \emph{x}. E na maioria dos casos, é considerado um vetor de variáveis de projeto, logo, o vetor gradiente resultante pode ser escrito em função das derivadas parciais conforme:
+\begin{equation} \label{otimization_6}
+\nabla F(X) =
+\begin{bmatrix}
+    \frac{d\emph{f}(x)}{dx_1} \\
+    \vdots\\
+    \frac{d\emph{f}(x)}{dx_n}
+\end{bmatrix}
+=
+\begin{bmatrix}
+    \dfrac{\emph{f}(X + \Delta x_1)-F(X)}{\Delta x_1}\\
+    \vdots\\
+    \dfrac{\emph{f}(X + \Delta x_n)-F(X)}{\Delta x_n}
+\end{bmatrix}
+\end{equation}
+
+Fisicamente, o vetor gradiente aponta na direção de aumento da função objetivo. Portanto, se quiser minimizar a função objetivo, deve-se mover na direção oposta daquele gradiente e o vetor de busca \textbf{S} é dado por:
+
+\begin{equation} \label{otimization_7}
+S = \nabla F
+\end{equation}
+
+O \emph{software MSC Nastran} utiliza este método quando nenhuma das restrições são críticas ou violadas e somente do ponto inicial para outros. Embora esta direção de busca seja uma boa direção inicial, subsequente direções de busca, utilizando este método, não funcionam propriamente para melhorar a função objetivo. Portanto, o \emph{software MSC Nastran} utiliza métodos mais eficientes que podem ser generalizados para casos de restrições ativas e/ou violadas, que são as condições de Kuhn-Tucker em conjunto com o algoritmo de determinação da direção de busca.
+
+\subsubsection{Condições de Kuhn-Tucker}
+Considerando um espaço para as variáveis de projeto, com as restrições $g_1(X)$ e $g_2(X)$ e uma função objetivo F(X), conforme mostrado na  \autoref{fig_KuhnTucker1}.
