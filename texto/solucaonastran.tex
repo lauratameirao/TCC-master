@@ -16,7 +16,7 @@ A utilização de uma otimização se deu com o intuito de encontrar um design �
 \end {enumerate}
 No caso deste trabalho, o otimizador será primeiramente validado, sendo feita uma otimização de um painel reforçado em material metálico e então uma comparação com a teoria. E em sequeência, após a validação deste otimizador, ele será utiizado para a obtenção de um projeto ótimo para um painel reforçado em material composto.
 
-\subsection{Análise vs. Otimização de um projeto}
+\section{Análise vs. Otimização de um projeto}
 Há algumas diferenças conceituais entre a otmização e a análise de um projeto, ainda que elas possam ser vistas como complementares.
 
  Durante a realização de uma análise, é criada uma idealização matemática de um sistema físico visando obter respostas de determinadas questões. A clase dessas respostas obtidas depende do tipos de análise que se está buscando, já a precisão dessas respostas, depende da qualidade do modelo e do conhecimento geral do verdadeiro sistema. Portanto, a definição do tipo de elemento finito utilizado, das representações da condições de contorno, dos carregamentos e da malha utilizada, representam um papel extremamente importante em determinar quão bem o modelo está para representar a estrutura física. Logo, o objetivo é obter uma previsão precisa das respostas que são esperadas da estrutura real.
@@ -25,8 +25,8 @@ Há algumas diferenças conceituais entre a otmização e a análise de um proje
 
  A maior diferença portanto entre um modelo de análise e um modelo de otimização é que a análise lida com "a solução", enquanto que a otimização lida com "uma solução". Isto é, durante a performance de uma análise, encontra-se uma única solução, já na perfomance de uma otimização mais de uma solução é possível de ser encontrada. Matematicamente, durante uma otimização o espaço de solução pode conter um mínimo local, mas não necessariamente um mínimo global. Portanto, dependendo das condições iniciais setadas no problema pode-se obter uma solução, já caso essas condições iniciais se alterem, pode-se obter uma solução diferente da obtida anteriormente.
 
- \subsection{Princípios básicos de uma Otimização Numérica}
- \subsubsection{Otimização Numérica - Visão geral}
+ \section{Princípios básicos de uma Otimização Numérica}
+ \subsection{Otimização Numérica - Visão geral}
 De acordo com \cite{moore1994msc} a otimização pode ser visto como a seguinte "tarefa de projeto": encontrar um ponto mais baixo em um terreno adjacente. Supõe-se que um indivíduo esteja situado do lado de uma montanha e que deseja encontrar o próximo ponto de menor elevação, este seria o "objetivo". A localização de qualquer ponto será quantificada utilizando as suas coordenadas, logo essas serão as "variáveis de projeto". Supõe-se, também, que existem algumas cercas no terreno, que forçam a restição do espaço de busca ser dentro do território cercado, logo as cercas são as "restrições" que limitam o "espaço de projeto".
 
 Negligenciando a presença de mínimos locais, ou seja, tendo somente um ponto que pode ser considerado como ótimo, achar o ponto de menor elevação dentro deste terreno não é um problema muito grande para um indivíduo comum. Visto que tudo que ele precisará fazer é olhar para a região, e com uma boa perspectiva, apontar qual o ponto mínimo.
@@ -36,7 +36,7 @@ Se tratando de um sistema computacional, a determinação do ponto próximo com 
 
 Visando encontrar a "direção de busca", deve-se determinar o valor do gradiente da função objetivo e então, utilizar essa informação para estabelecer uma provável direção. No exemplo citado, de encontrar um ponto próximo com menor elevação, mesmo para um indivíduo privado de vista, é possível encontrar a direção dando passos pequenos, por exemplo, até encontrar as cercas como restrições e ir estabelecendo as diferenças nas elevações de cada passada. Este tipo de otimização que utiliza a ideia do gradiente é chamada, portanto, de método baseado no gradiente. E dentro deste método a ideia é repetir o processo de busca até que não seja mais possível reduzir a função objetivo.
 
-\subsubsection{Otimização Numérica - Visão quantitativa}
+\subsection{Otimização Numérica - Visão quantitativa}
 Em uma visão quantitativa de uma otimização numérica, tem-se portanto, que deve-se encontrar o valor de \emph{\textbf{X}} que minimize ou maximize, dependendo do problema, a função objetivo \emph{F(\textbf{X})} submetida à:
 
 \begin{enumerate}
@@ -106,3 +106,88 @@ O \emph{software MSC Nastran} utiliza este método quando nenhuma das restriçõ
 
 \subsubsection{Condições de Kuhn-Tucker}
 Considerando um espaço para as variáveis de projeto, com as restrições $g_1(X)$ e $g_2(X)$ e uma função objetivo F(X), conforme mostrado na  \autoref{fig_KuhnTucker1}.
+
+\begin{figure}[h]
+	\caption{\label{fig_KuhnTucker1}Condições de Kuhn-Tucker em um ótimo restrito.}
+  \centering
+  \includegraphics[scale=0.71]{figura/KuhnTucker1}
+	\legend{Fonte: \cite{moore1994msc}}
+\end{figure}
+\
+
+Os limites das restrições são as curvas nas quais os valores das restrições são identicamente iguais a zero. O ponto ótimo, nesta na \autoref{fig_KuhnTucker1}, é o ponto na interseção das duas curvas de restrições (ponto X*). Caso os gradientes das duas curvas de restrições sejam computados, observa-se que eles apontam em diferentes direções, visto que os gradientes apontam na direção de crescimento do valor da função. Portanto, para essa situação de um ótimo restrito, as condições de Kuhn-Tucker estabelecem que o vetor soma da função objetivo e das restrições devem ser iguais a zero, dados apropriados fatores multiplicativos (multiplicadores de Lagrange). A \autoref{fig_KuhnTucker2} mostra a situação em que os multiplicadores de Lagrange $\lambda_1$ e $\lambda_2$ fazem com que o vetor soma seja zero.
+
+\begin{figure}[h]
+	\caption{\label{fig_KuhnTucker2}Interpretação gráfica das condições de Kuhn-Tucker.}
+  \centering
+  \includegraphics[scale=1.0]{figura/KuhnTucker2}
+	\legend{Fonte: \cite{moore1994msc}}
+\end{figure}
+
+\section{Otimização Estrutural}
+Durante a realização de uma análise estrutural, o objetivo é construir uma idealização matemática de um determinado sistema físico. Para isso, deve-se portanto, determinar as propriedades da análise, o tipo de resposta que será obtida e também uma malha em elementos finitos que será capaz de computar as respostas de maneira acurada. As propriedades da análise consistem em definir os materiais, as espessuras dos elementos, as malhas dos elementos, entre outras variáveis, e os tipos de respostas podem ser, por exemplo, tensões ou deformações nos elementos, freuências modais e outros. Já durante a realização de uma otimização, deseja-se definir como o modelo varia, em busca de um design melhor, com a alteração das variáveis de otimização.
+
+A otimização utilizada pelo \emph{software MSC Nastran} conecta portanto as duas propostas acima utilizando conceitos intermediários:
+\begin{enumerate}
+\item Propriedades de projeto: proporcionam uma conexão entre as variáveis de projeto utilizadas pelo otimizador e as propriedades dos elementos utilizadas pela análise em elementos finitos;
+\item Respostas de projeto: é um resultado físico que pode ser utilizado como um objetivo de projeto ou, seguindo imposições do usuário, como uma restrição de projeto.
+\end{enumerate}
+
+\subsection{Conexão entre análise estrutural e otimização numérica}
+As primeiras tentativas utilizadas para conectarem a análise estrutural com a otimização numérica se baseavam na ideia de um acoplamento direto, chamado também de \emph{"black box"}, conforme mostrado na \autoref{fig_blackbox}.
+
+\begin{figure}[h]
+	\caption{\label{fig_blackbox}Acoplamento direto ou \emph{"black box"}.}
+  \centering
+  \includegraphics[scale=0.7]{figura/blackbox}
+	\legend{Fonte: \cite{moore1994msc}}
+\end{figure}
+
+\
+Neste método, todas as vezes que o otimizador necessitase de uma avaliação da função objetivo seria realizada uma análise em elementos finitos. Este método, portanto, se mostrou inviável mesmo para problemas pequenos, visto que necessitaria de muitos recursos computacionais. O principal fator relacionado à otimização estrutural que torna a ideia do \emph{"black box"} inviável, é que as respostas quantitativas de interesse são normalmente funções implícitas das variáveis de projeto. Isto é, por exemplo, a variação de tensão em um elemento de placa em função da variação da espessura da mesma, só pode ser obtido realizando uma análise em elementos finitos da estrutura.
+
+Portanto, para evitar que seja feita uma análise em elementos finitos para cada variação durante a otimização numérica, o \emph{MSC Nastran} utiliza o conceito de realizar aproximações, conforme \autoref{fig_blackbox2}.
+
+O conceito das aproximações baseia-se principalmente na ideia de reduzir or problema suficientemente, de maneira que, somente as informações mais pertinentes sejam consideradas no processo de geração do melhor projeto. Uma vez que um novo design é proposto pelo otimizador, baseado na informação fornecida pelo modelo aproximado, o próximo passo é realizar uma análise mais detalhada em elementos finitos da nova configuração. E com isso, é possível checar se o novo design realmente satisfaz as restrições de projeto e reduz a função objetivo. Se uma subsequente otimização ainda for necessária, a análise em elementos finitos serve como base para construir um submodelo com aproximações. E portanto, estes ciclos de projetos são repetidos até que a convergência seja atingida.
+
+\begin{figure}[h]
+	\caption{\label{fig_blackbox2}Acoplamento entre análise em elementos finitos e otimização numérica utilizando aproximações.}
+  \centering
+  \includegraphics[scale=0.7]{figura/Blackbox2}
+	\legend{Fonte: \cite{moore1994msc}}
+\end{figure}
+
+\subsection{Conceitos fundamentais}
+Dentro da otimização estrutural do \emph{MSC Nastran} há alguns conceitos fundamentais que devem ser destacados, conforme segue.
+
+\subsubsection{Variáveis de projeto}
+As variáveis de projeto são quantidades que são conhecidas pelo otimizador e que podem ser diretamente alteradas para satisfazerem a proposta da otimização. No \emph{MSC Nastran}, as variáveis de projeto são definidas pela entrada do tipo DESVAR e elas só afetam a análise em elementos finitos caso sejam conectadas com as propriedades de projeto e/ou respostas de projeto.
+
+É função do usuário definir os limites de variação das variáveis de projeto, ou seja, impor as restrições. O \emph{MSC Nastran} é capaz de distinguir entre variáveis de projeto dependentes e independentes, e também é capaz de utilizar o conceito de variáveis discretas, onde o valor das variáveis é restrito a um específico \emph{set} de números reais.
+
+No caso deste estudo, as variáveis de projeto, detalhadas na seção do Desenvolvimento, são as espessuras do revestimento e do reforçador, e também os parâmetros de laminação ($\xi$).
+
+\subsubsection{Propriedades de projeto}
+As propriedades de projeto são quantidades que influenciam diretamente na análise de elementos finitos e que incluem propriedades como espessuras, materiais, densidades e posicionamento dos nós.
+
+As propriedades dos elementos variam de acordo com o tipo de elemento utilizado no modelo, conforme mostrado na \autoref{fig_designprop}. Bem como as propriedades dos materiais, dependem do tipo de entrada de material que será fornecida.
+
+\begin{figure}[h]
+	\caption{\label{fig_designprop}Exemplos de propriedades dos elementos e propriedades do materiais.}
+  \centering
+  \includegraphics[scale=0.5]{figura/DesignProp}
+	\legend{Fonte: \cite{moore1994msc}}
+\end{figure}
+
+No caso deste estudo, detalhado na seção do Desenvolvimento, propriedades de elementos do tipo PSHELL e propriedades dos materiais do tipo MAT2 foram utilizadas para gerar o modelo.
+
+\subsubsection{Respostas de projeto}
+As respostas de projeto são utilizadas no \emph{MSC Nastran} como bases para definirem o objetivo e as restrições de projeto. Assim como as propriedades de projeto, as respostas de projeto funcionam como uma conexão entre a análise em elementos finitos e a otimização numérica, e podem ser divididas em três tipos.
+
+\begin{enumerate}
+\item Resposta tipo 1: essas respostas são obtidas diretamente de uma análise do \emph{MSC Nastran} e utiliza-se DRESP1 para acessá-las. Exemplos: peso estrutural, deslocamentos de nós e tensões nos elementos.
+\item Resposta tipo 2: esse tipo de resposta permite que o usuário utilize uma equação para manipular as respostas do tipo 1 e utiliza-se DRESP2 para acessá-las. Permite, por exemplo, que o usuário formule critérios de falha, avalia o comportamento referente a flambagem, imponha limitações para as respostas, entre outros.
+\item Resposta tipo 3: este tipo de resposta é semelhante ao tipo 2, mas permite que o usuário utilize o API (\emph{Application Programming Interface}) para buscas processos externos ao \emph{MSC Nastran}. Utiliza-se DRESP3 para acessá-las.
+\end{enumerate}
+
+No caso deste estudo, detalhado na seção do Desenvolvimento, as respostas de projeto do tipo 1 e 2 (DRESP1 e DRESP2) foram utilizadas no modelo.
