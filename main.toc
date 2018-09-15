@@ -35,7 +35,12 @@
 \contentsline {subsubsection}{\numberline {4.4.2.1}Vari\IeC {\'a}veis de projeto}{42}{subsubsection.4.4.2.1}
 \contentsline {subsubsection}{\numberline {4.4.2.2}Propriedades de projeto}{42}{subsubsection.4.4.2.2}
 \contentsline {subsubsection}{\numberline {4.4.2.3}Respostas de projeto}{44}{subsubsection.4.4.2.3}
+\contentsline {subsubsection}{\numberline {4.4.2.4}Restri\IeC {\c c}\IeC {\~o}es de projeto}{44}{subsubsection.4.4.2.4}
+\contentsline {subsubsection}{\numberline {4.4.2.5}Fun\IeC {\c c}\IeC {\~a}o objetivo do projeto}{44}{subsubsection.4.4.2.5}
+\setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
+\contentsline {chapter}{\chapternumberline {5}\MakeTextUppercase {Metodologia}}{45}{chapter.5}
+\contentsline {section}{\numberline {5.1}Desenvolvimento geral}{45}{section.5.1}
 \vspace {\cftbeforechapterskip }
 \vspace {\cftbeforechapterskip }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
-\contentsline {chapter}{\uppercase {Refer\^encias}}{45}{section*.11}
+\contentsline {chapter}{\uppercase {Refer\^encias}}{47}{section*.11}

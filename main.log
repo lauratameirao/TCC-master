@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6730 64-bit) (preloaded format=pdflatex 2018.7.9)  15 SEP 2018 12:13
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6730 64-bit) (preloaded format=pdflatex 2018.7.9)  15 SEP 2018 13:02
 entering extended mode
 **./main.tex
 (main.tex
@@ -1015,10 +1015,12 @@ l.267
 
 ] [12
 
-]) (main.toc) [13]
-[14
+]) (main.toc
+Underfull \vbox (badness 2547) has occurred while \output is active []
 
-] (texto/objetivos.tex) (texto/introducao.tex [15
+ [13])
+[14] (texto/objetivos.tex) (texto/introducao.tex [15
+
 
 ] [16
 
@@ -1029,7 +1031,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 (texto/materiaiscompostos.tex [18] [19
 
 ]
-<figura/UseOfComposites.jpg, id=200, 350.05782pt x 213.04594pt>
+<figura/UseOfComposites.jpg, id=208, 350.05782pt x 213.04594pt>
 File: figura/UseOfComposites.jpg Graphic file (type jpg)
 <use figura/UseOfComposites.jpg>
 Package pdftex.def Info: figura/UseOfComposites.jpg  used on input line 18.
@@ -1038,7 +1040,7 @@ Package pdftex.def Info: figura/UseOfComposites.jpg  used on input line 18.
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [20 <./figura/UseOfComposites.jpg>] [21]
-<figura/LaminateDeformation.jpg, id=229, 423.08063pt x 326.72063pt>
+<figura/LaminateDeformation.jpg, id=237, 423.08063pt x 326.72063pt>
 File: figura/LaminateDeformation.jpg Graphic file (type jpg)
 <use figura/LaminateDeformation.jpg>
 Package pdftex.def Info: figura/LaminateDeformation.jpg  used on input line 46.
@@ -1051,7 +1053,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 4144) has occurred while \output is active []
 
  [24]
-<figura/LaminateForcesMoments.jpg, id=266, 373.395pt x 210.7875pt>
+<figura/LaminateForcesMoments.jpg, id=274, 373.395pt x 210.7875pt>
 File: figura/LaminateForcesMoments.jpg Graphic file (type jpg)
 <use figura/LaminateForcesMoments.jpg>
 Package pdftex.def Info: figura/LaminateForcesMoments.jpg  used on input line 1
@@ -1076,7 +1078,7 @@ LaTeX Font Info:    Font shape `OMS/lmr/m/n' in size <12> not available
 (Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 266.
 
 [27]
-<figura/Stacking.jpg, id=302, 373.395pt x 123.46124pt>
+<figura/Stacking.jpg, id=310, 373.395pt x 123.46124pt>
 File: figura/Stacking.jpg Graphic file (type jpg)
 <use figura/Stacking.jpg>
 Package pdftex.def Info: figura/Stacking.jpg  used on input line 276.
@@ -1086,18 +1088,18 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [29]
 [30]
-<figura/Laminate.jpg, id=346, 352.31625pt x 140.77594pt>
+<figura/Laminate.jpg, id=354, 352.31625pt x 140.77594pt>
 File: figura/Laminate.jpg Graphic file (type jpg)
 <use figura/Laminate.jpg>
 Package pdftex.def Info: figura/Laminate.jpg  used on input line 393.
 (pdftex.def)             Requested size: 352.31538pt x 140.77557pt.
  [31 <./figura/Laminate.jpg>]
-<figura/BalancedLaminate.jpg, id=371, 429.85594pt x 167.87718pt>
+<figura/BalancedLaminate.jpg, id=379, 429.85594pt x 167.87718pt>
 File: figura/BalancedLaminate.jpg Graphic file (type jpg)
 <use figura/BalancedLaminate.jpg>
 Package pdftex.def Info: figura/BalancedLaminate.jpg  used on input line 460.
 (pdftex.def)             Requested size: 429.85489pt x 167.87677pt.
- [32]) (texto/solucaonastran.tex [33 <./figura/BalancedLaminate.jpg>] [34
+ [32]) (texto/otimizacao.tex [33 <./figura/BalancedLaminate.jpg>] [34
 
 ]
 Underfull \vbox (badness 1783) has occurred while \output is active []
@@ -1107,31 +1109,31 @@ Underfull \vbox (badness 1178) has occurred while \output is active []
 
  [36]
 [37] [38]
-<figura/KuhnTucker1.jpg, id=438, 282.30469pt x 247.67531pt>
+<figura/KuhnTucker1.jpg, id=446, 282.30469pt x 247.67531pt>
 File: figura/KuhnTucker1.jpg Graphic file (type jpg)
 <use figura/KuhnTucker1.jpg>
 Package pdftex.def Info: figura/KuhnTucker1.jpg  used on input line 113.
 (pdftex.def)             Requested size: 200.43771pt x 175.8507pt.
  [39 <./figura/KuhnTucker1.jpg>]
-<figura/KuhnTucker2.jpg, id=453, 261.97874pt x 168.63pt>
+<figura/KuhnTucker2.jpg, id=461, 261.97874pt x 168.63pt>
 File: figura/KuhnTucker2.jpg Graphic file (type jpg)
 <use figura/KuhnTucker2.jpg>
 Package pdftex.def Info: figura/KuhnTucker2.jpg  used on input line 123.
 (pdftex.def)             Requested size: 261.9781pt x 168.62958pt.
  [40 <./figura/KuhnTucker2.jpg>]
-<figura/blackbox.jpg, id=464, 421.575pt x 98.61844pt>
+<figura/blackbox.jpg, id=472, 421.575pt x 98.61844pt>
 File: figura/blackbox.jpg Graphic file (type jpg)
 <use figura/blackbox.jpg>
 Package pdftex.def Info: figura/blackbox.jpg  used on input line 142.
 (pdftex.def)             Requested size: 295.10048pt x 69.03241pt.
-<figura/Blackbox2.jpg, id=470, 428.35031pt x 231.11343pt>
+<figura/Blackbox2.jpg, id=478, 428.35031pt x 231.11343pt>
 File: figura/Blackbox2.jpg Graphic file (type jpg)
 <use figura/Blackbox2.jpg>
 Package pdftex.def Info: figura/Blackbox2.jpg  used on input line 156.
 (pdftex.def)             Requested size: 299.84317pt x 161.77829pt.
 
 [41 <./figura/blackbox.jpg>] [42 <./figura/Blackbox2.jpg>]
-<figura/DesignProp.jpg, id=489, 666.99188pt x 882.29625pt>
+<figura/DesignProp.jpg, id=497, 666.99188pt x 882.29625pt>
 File: figura/DesignProp.jpg Graphic file (type jpg)
 <use figura/DesignProp.jpg>
 Package pdftex.def Info: figura/DesignProp.jpg  used on input line 178.
@@ -1139,11 +1141,17 @@ Package pdftex.def Info: figura/DesignProp.jpg  used on input line 178.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [43 <./figura/DesignProp.jpg>]) (main.bbl (main.brf)
+ [43 <./figura/DesignProp.jpg>]) (texto/metodologia.tex [44]) (main.bbl (main.b
+rf)
 \tf@brf=\write5
 \openout5 = `main.brf'.
 
- [44]
+
+[45
+
+] [46
+
+]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `\uppercase' on input line 3.
@@ -1151,9 +1159,7 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 bibitemlist
 ) 
 AED: lastpage setting LastPage
-[45
-
-]
+[47]
 \tf@toc=\write6
 \openout6 = `main.toc'.
 
@@ -1171,11 +1177,11 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 469.
  ) 
 Here is how much of TeX's memory you used:
- 14630 strings out of 492973
- 222918 string characters out of 3126693
- 397251 words of memory out of 3000000
- 17935 multiletter control sequences out of 15000+200000
- 107504 words of font info for 135 fonts, out of 3000000 for 9000
+ 14649 strings out of 492973
+ 223214 string characters out of 3126693
+ 397305 words of memory out of 3000000
+ 17942 multiletter control sequences out of 15000+200000
+ 107633 words of font info for 136 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  44i,17n,38p,1557b,547s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Users/ltsam/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/lm/lm-ec.en
@@ -1205,9 +1211,9 @@ am/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmss17.pfb><C:/Users
 ><C:/Users/ltsam/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmsy6.
 pfb><C:/Users/ltsam/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/lms
 y8.pfb>
-Output written on main.pdf (47 pages, 1077724 bytes).
+Output written on main.pdf (49 pages, 1083068 bytes).
 PDF statistics:
- 757 PDF objects out of 1000 (max. 8388607)
- 171 named destinations out of 1000 (max. 500000)
- 32088 words of extra memory for PDF output out of 35830 (max. 10000000)
+ 788 PDF objects out of 1000 (max. 8388607)
+ 178 named destinations out of 1000 (max. 500000)
+ 32120 words of extra memory for PDF output out of 35830 (max. 10000000)
 

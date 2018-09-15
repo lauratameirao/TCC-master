@@ -125,7 +125,7 @@ Os limites das restrições são as curvas nas quais os valores das restrições
 \end{figure}
 
 \section{Otimização Estrutural}
-Durante a realização de uma análise estrutural, o objetivo é construir uma idealização matemática de um determinado sistema físico. Para isso, deve-se portanto, determinar as propriedades da análise, o tipo de resposta que será obtida e também uma malha em elementos finitos que será capaz de computar as respostas de maneira acurada. As propriedades da análise consistem em definir os materiais, as espessuras dos elementos, as malhas dos elementos, entre outras variáveis, e os tipos de respostas podem ser, por exemplo, tensões ou deformações nos elementos, freuências modais e outros. Já durante a realização de uma otimização, deseja-se definir como o modelo varia, em busca de um design melhor, com a alteração das variáveis de otimização.
+Durante a realização de uma análise estrutural, o objetivo é construir uma idealização matemática de um determinado sistema físico. Para isso, deve-se portanto, determinar as propriedades da análise, o tipo de resposta que será obtida e também uma malha em elementos finitos que será capaz de computar as respostas de maneira acurada. As propriedades da análise consistem em definir os materiais, as espessuras dos elementos, as malhas dos elementos, entre outras variáveis, e os tipos de respostas podem ser, por exemplo, tensões ou deformações nos elementos, frequências modais e outros. Já durante a realização de uma otimização, deseja-se definir como o modelo varia, em busca de um design melhor, com a alteração das variáveis de otimização.
 
 A otimização utilizada pelo \emph{software MSC Nastran} conecta portanto as duas propostas acima utilizando conceitos intermediários:
 \begin{enumerate}
@@ -191,3 +191,16 @@ As respostas de projeto são utilizadas no \emph{MSC Nastran} como bases para de
 \end{enumerate}
 
 No caso deste estudo, detalhado na seção do Desenvolvimento, as respostas de projeto do tipo 1 e 2 (DRESP1 e DRESP2) foram utilizadas no modelo.
+
+\subsubsection{Restrições de projeto}
+As restrições de projeto são acessadas utilizando o DCONSTR para identificarem um resposta (DRESP1, DRESP2 ou DRESP3) e assim, impor um limite a essa resposta.
+\begin{equation} \label{otimization_constraints}
+r_{j}^L \leq r_{j}(X)\leq r_{j}^U
+\end{equation}
+
+onde $r_{j}^L$ é o limite inferior da j-ésima resposta e $r_{j}^U$ é o limite superior.
+
+\subsubsection{Função objetivo do projeto}
+A função objetivo do projeto é uma quantidade escalar que deve ser minimizada ou maximizada pelo otimizador, dependendo do problema proposto. Esta função objetivo é selecionada utilizando o comando DESOBJ e este comando referencia a alguma resposta do tipo DRESP1, DRESP2 ou DRESP3 que deve ser uma resposta escalar simples.
+
+No caso deste estudo, detalhado na seção do Desenvolvimento, a função objetivo é minimizar o peso da estrutura. Para isso, utiliza-se de três soluções do \emph{MSC Nastran}, a solução de otimização (SOL 200), a solução estática (SOL 101) a solução de flambagem (SOL 105). 
