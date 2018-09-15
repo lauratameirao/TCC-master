@@ -1,3 +1,113 @@
  \chapter[Metodologia]{Metodologia}
 
  \section{Desenvolvimento geral}
+Visando realizar a otimização estrutural de um painel reforçado utilizando os parâmetros de laminação, realizou-se uma sequência de passos conformo segue:
+\begin{enumerate}
+  \item Análise teórica de um painel reforçado de material metálico utilizando a metodologia do \emph{Fator de Eficiência de Farrar} proposta por \cite{niu1997airframe}
+  \item Otimização de um painel reforçado de material metálico utilizando o \emph{MSC Nastran} e comparação dos resultados obtidos com o resultado teórico obtido no item anterior. Nesta etapa visou-se obter a validação o método de otimização utilizado para assim poder aplicá-lo em outros paineis reforçados;
+  \item Otimização de um painel reforçado de material composto utilizando o \emph{MSC Nastran} e comparação dos resultados obtidos com os resultados obtidos para um painel reforçado de material metálico.
+\end {enumerate}
+
+As seções seguintes descrevem a metodologia utilizada com mais detalhes e apresentam os modelos das otimizações realizadas e o capítulo seguinte contém os resultados obtidos.
+
+\section{Análise teórica de um painel reforçado}
+Visando realizar a análise teórica de um painel reforçado fabricado em material metálico, assume-se algumas proposições como segue e considera-se um painel conforme mostrado na \autoref{fig_StiffenedPanels}.
+
+\begin{itemize}
+\item Painel suficientemente largo para permitir que seja tratado como uma simples coluna, ou seja, não há restrições impostas nas bordas longitudinais do painel;
+\item O painel possui uma fixação de apoio no final da sua estrutura, em relação ao comprimento L. Deve-se levar em consideração este comprimento como sendo o o comprimento efetivo do painel, e não o comprimento da báia;
+\item As nervuras não colocam restrições à flambagem.
+\end{itemize}
+
+\begin{figure}[h]
+	\caption{\label{fig_StiffenedPanels}Típico painel reforçado.}
+  \centering
+  \includegraphics[scale=1.0]{figura/StiffenedPanel}
+	\legend{Fonte: \cite{niu1997airframe}}
+\end{figure}
+\
+
+Nota-se que\
+
+$t$ -  Espessura do revestimento \
+
+$b_w$ - Altura do reforçador \
+
+$b$ - Largura entre reforçadores \
+
+$L$ - Comprimento efetivo \
+
+A \autoref{fig_InitialBuckling} mostra a tensão de flambagem inicial de diversas combinações de paineis reforçados, como razão entre $\dfrac{f_i}{f_o}$, considerando a seguinte notação.
+
+\begin{figure}[h]
+	\caption{\label{fig_InitialBuckling}Tensão inicial de flambagem.}
+  \centering
+  \includegraphics[scale=1.0]{figura/InitialBuckling}
+	\legend{Fonte: \cite{niu1997airframe}}
+\end{figure}
+\
+$f$ - Tensão aplicada\
+
+$f_E$ - Tensão de instabilidade de Euler\
+
+$f_i$ - Tensão inicial de flambagem do painel\
+
+$f_o$ - Tensão inicial de flambagem de um painel reforçado longo, com espaçamento entre reforçadores (b) e espessura do revestimento (t), simplesmente apoiado ao longo da borda = 3.62$E_t$$(\dfrac{t}{b})^2$\
+
+Segundo \cite{niu1997airframe}, para um dado material, no qual a relação entre $f$ e $E_t$ é conhecida, o \emph{Fator de Eficiência de Farrar} pode ser dado por:
+
+\begin{equation} \label{Farrar}
+F = f(\dfrac{L}{N E_t})^{0.5}
+\end{equation}
+Onde
+
+$N$ - Carga por unidade de comprimento do painel\
+
+$E_t$ - Módulo tangente
+
+Este fator pode ser utilizado, conforme \autoref{fig_plotFarrar} que mostra para um painel reforçado de Al 2024-T3.
+
+\begin{figure}[h]
+	\caption{\label{fig_plotFarrar}Tensão no painel \emph{vs.} índice estrutural $\dfrac{N}{L}$ para material Al 2024-T3.}
+  \centering
+  \includegraphics[scale=1.0]{figura/PlotFarrar}
+	\legend{Fonte: \cite{niu1997airframe}}
+\end{figure}
+\
+
+Sabe-se que a tensão incial de flambagem ($f_i$) é dada por:
+\begin{equation} \label{InitialBuck}
+f_i = (\dfrac{f_i}{f_o})[{3.62E_t(\dfrac{t}{b})^2}]
+\end{equation}
+
+E que a tensão de instabilidade de Euler ($f_E$) é dada por:
+\begin{equation} \label{InitialEuler}
+f_E = {\pi^2}E_t(\dfrac{\rho}{L})^2
+\end{equation}
+
+Onde $\rho$ corresponde ao raio de giração do painel reforçado em relação ao seu eixo neutro e tem que:
+\begin{equation} \label{giracao}
+{\rho^2} = {\dfrac{b^2{R_b}^3R_t}{12(1+R_bR_t)}}(4+R_bR_t)^2
+\end{equation}
+
+Relacionando a tensão no painel com a intensidade de carga tem-se:
+\begin{equation} \label{StressPanel}
+f = \dfrac{N}{t(1+R_bR_t)}
+\end{equation}
+
+Portanto, impõe-se a condição de que tensão aplicada é igual à tensão inicial de flambagem do painel que é igual à tensão de instabilidade de Euler ($f=f_i=f_E$).
+
+Tomando-se a \autoref{InitialBuck} x \autoref{InitialEuler} x {\autoref{StressPanel}$^2$, obtem-se:
+\begin{equation} \label{StressPanel2}
+f^4 = \pi^2{E_t}^2(\frac{3.62{\rho}^2f_i}{f_ob^2L^2})[\dfrac{N^2}{(1+R_bR_t)^2}]
+\end{equation}
+
+Tirando a raiz quarta de ambos os lados, tem-se:
+\begin{equation} \label{StressPanel3}
+f = F(\dfrac{NE_t}{L})^{0.5}
+\end{equation}
+
+Onde o \emph{Fator de Eficiência de Farrar} vale:
+\begin{equation} \label{Farrar_Efficiency}
+F = 1.314{\dfrac{{R_b}^3R_t(4+R_bR_t)^{0.25}}{(1+R_bR_t)}}({\frac{f_i}{f_o}})^{0.25}
+\end{equation}
