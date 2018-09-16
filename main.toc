@@ -42,7 +42,9 @@
 \contentsline {section}{\numberline {5.1}Desenvolvimento geral}{45}{section.5.1}
 \contentsline {section}{\numberline {5.2}An\IeC {\'a}lise te\IeC {\'o}rica de um painel refor\IeC {\c c}ado}{45}{section.5.2}
 \contentsline {subsection}{\numberline {5.2.1}Limita\IeC {\c c}\IeC {\~a}o de projeto - Espa\IeC {\c c}amento entre refor\IeC {\c c}adores}{48}{subsection.5.2.1}
+\contentsline {section}{\numberline {5.3}Otimiza\IeC {\c c}\IeC {\~a}o de um painel refor\IeC {\c c}ado em material met\IeC {\'a}lico}{49}{section.5.3}
+\contentsline {subsection}{\numberline {5.3.1}Modelo em elementos finitos}{50}{subsection.5.3.1}
 \vspace {\cftbeforechapterskip }
 \vspace {\cftbeforechapterskip }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
-\contentsline {chapter}{\uppercase {Refer\^encias}}{51}{section*.11}
+\contentsline {chapter}{\uppercase {Refer\^encias}}{53}{section*.11}

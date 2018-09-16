@@ -31,11 +31,14 @@ Nota-se que\
 
 $t$ -  Espessura do revestimento \
 
-$b_w$ - Altura do reforçador \
-
 $b$ - Largura entre reforçadores \
 
+$t_w$ - Espessura do reforçador \
+
+$b_w$ - Altura do reforçador \
+
 $L$ - Comprimento efetivo \
+\
 
 A \autoref{fig_InitialBuckling} mostra a tensão de flambagem inicial de diversas combinações de paineis reforçados, como razão entre $\dfrac{f_i}{f_o}$, considerando a seguinte notação.
 
@@ -61,11 +64,9 @@ F = f(\dfrac{L}{N E_t})^{0.5}
 \end{equation}
 Onde
 
-$N$ - Carga por unidade de comprimento do painel\
+$N$ - Carga por unidade de comprimento do painel (lbs/in)\
 
-$E_t$ - Módulo tangente
-
-Este fator pode ser utilizado, conforme \autoref{fig_plotFarrar} que mostra para um painel reforçado de Al 2024-T3.
+$E_t$ - Módulo tangente (psi)
 
 \begin{figure}[h]
 	\caption{\label{fig_plotFarrar}Tensão no painel \emph{vs.} índice estrutural $\dfrac{N}{L}$ para material Al 2024-T3.}
@@ -74,6 +75,8 @@ Este fator pode ser utilizado, conforme \autoref{fig_plotFarrar} que mostra para
 	\legend{Fonte: \cite{niu1997airframe}}
 \end{figure}
 \
+
+Este fator pode ser utilizado, conforme \autoref{fig_plotFarrar} que mostra para um painel reforçado de Al 2024-T3.
 
 Sabe-se que a tensão incial de flambagem ($f_i$) é dada por:
 
@@ -91,6 +94,16 @@ Onde $\rho$ corresponde ao raio de giração do painel reforçado em relação a
 
 \begin{equation} \label{giracao}
 {\rho^2} = {\dfrac{b^2{R_b}^3R_t}{12(1+R_bR_t)}}(4+R_bR_t)^2
+\end{equation}
+
+Em que
+\begin{equation} \label{Rb}
+R_b = \dfrac{b_w}{b}
+\end{equation}
+\
+
+\begin{equation} \label{Rt}
+R_t = \dfrac{t_w}{t}
 \end{equation}
 
 Relacionando a tensão no painel com a intensidade de carga tem-se:
@@ -139,4 +152,44 @@ Visando, portanto, projetar um painel reforçado otimizado, seguindo a metodolog
 
 F=0.81; $R_t$=2.25; $R_b$=0.65z\
 
+\end{itemize}
+
+\section{Otimização de um painel reforçado em material metálico}
+Realizou-se uma otimização de um painel reforçado em material metálico utilizando o \emph{MSC Nastran}, para que após a validação do otimizador ele possa ser aplicado para outros tipos de paineis reforçados, como os em material composto.
+
+\subsection{Modelo em elementos finitos}
+Desenvolveu-se um modelo em elementos finitos de um painel reforçado, conforme \autoref{fig_StiffMetal} para realizar a análise de otimização. Este modelo foi desenvolvido utilizando somente um tipo de material, tanto para o revestimento quanto para o reforçador, que foi o Al, com as características conforme mostrado na %\autoref{fig_matmetal}.
+
+\begin{figure}[ht]
+	\caption{\label{fig_StiffMetal}Modelo do reforçador em material metálico.}
+  \centering
+  \includegraphics[scale=0.7]{figura/StiffMetal}
+	\legend{Fonte: Femap}
+\end{figure}
+\
+
+O modelo foi desenvolvido com elementos do tipo casca (PSHELL) para o reforçador e para o revestimento, e com duas propriedades distintas, sendo uma propriedade para o revestimento e outra propriedade para o reforçador.
+
+O painel reforçado foi modelado utilizando somente um reforçador e para isso as seguintes condições de contorno foram aplicadas, conforme mostrado na (adicionar figura). %\autoref{fig_StiffMetalConst}.
+
+Em relação ao carregamento do aplicado no modelo, definiu-se que o painel reforçado estaria submetido somente a uma carga de compressão, sem cisalhamento. E portanto, aplicou-se essa carga de compressão conforme mostrado na \autoref{fig_StiffMetalLoad}.
+utilizando um elemento rígido do tipo RBE2 para distribuir a carga nos elementos de placa.
+
+\begin{figure}[h]
+	\caption{\label{fig_StiffMetalLoad}Carregamento aplicado no reforçador em material metálico.}
+  \centering
+  \includegraphics[scale=0.7]{figura/StiffMetalLoad}
+	\legend{Fonte: Femap}
+\end{figure}
+\
+
+Em relaçao a otimização, buscou-se como objetivo minimizar o peso da estrutura. Portanto, durante a solução de otimização, mateve-se a carga de compressão constante e variou-se as espessuras do revestimento e do reforçador. Buscou-se, então, uma estrutura que suportasse a carga de compressão, utilizando uma análise de flambagem dentro do otimizador (SOL 105), e que possuíse o menor peso estrutural.
+
+Resumidamente, a otimização possuiu as seguintes características:
+\begin{itemize}
+\item Função objetivo: minimizar o peso da estrutura;
+\item Variáveis de projeto: espessura do revestimento e espessura do reforçador;
+\item Respostas de projeto: Cinco (5) primeiros autovalores da solução de flambagem;
+\item Restrições de projeto: Autovalores maiores que um (1);
+\item Soluções utilizadas: Otimização (SOL 200) e Análise de flambagem (SOL 105).
 \end{itemize}
