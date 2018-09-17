@@ -168,12 +168,12 @@ Desenvolveu-se um modelo em elementos finitos de um painel reforçado, conforme 
 \end{figure}
 \
 
-O modelo foi desenvolvido com elementos do tipo casca (PSHELL) para o reforçador e para o revestimento, e com duas propriedades distintas, sendo uma propriedade para o revestimento e outra propriedade para o reforçador.
+O modelo foi desenvolvido com elementos do tipo placa (\emph{PLATE}) para o reforçador e para o revestimento, e com duas propriedades distintas, sendo uma propriedade para o revestimento e outra propriedade para o reforçador.
 
-O painel reforçado foi modelado utilizando somente um reforçador e para isso as seguintes condições de contorno foram aplicadas, conforme mostrado na (adicionar figura). %\autoref{fig_StiffMetalConst}.
+O painel reforçado foi modelado utilizando somente a idealização de um reforçador e para isso as seguintes condições de contorno foram aplicadas, conforme mostrado na (adicionar figura). %\autoref{fig_StiffMetalConst}.
 
-Em relação ao carregamento do aplicado no modelo, definiu-se que o painel reforçado estaria submetido somente a uma carga de compressão, sem cisalhamento. E portanto, aplicou-se essa carga de compressão conforme mostrado na \autoref{fig_StiffMetalLoad}.
-utilizando um elemento rígido do tipo RBE2 para distribuir a carga nos elementos de placa.
+Em relação ao carregamento do aplicado no modelo, definiu-se que o painel reforçado estaria submetido somente a uma carga de compressão, sem cisalhamento. E portanto, aplicou-se essa carga de compressão conforme mostrado na \autoref{fig_StiffMetalLoad},
+utilizando um elemento rígido do tipo RBE2 para distribuir a carga igualmente nos nós dos elementos de placa que situam-se em uma extremidade do reforçador.
 
 \begin{figure}[h]
 	\caption{\label{fig_StiffMetalLoad}Carregamento aplicado no reforçador em material metálico.}
@@ -183,6 +183,51 @@ utilizando um elemento rígido do tipo RBE2 para distribuir a carga nos elemento
 \end{figure}
 \
 
+\subsection{Otimização}
+Em relaçao a otimização, buscou-se como objetivo minimizar o peso da estrutura. Portanto, durante a solução de otimização, mateve-se a carga de compressão constante e variou-se as espessuras do revestimento e do reforçador. Buscou-se, então, uma estrutura que suportasse a carga de compressão, utilizando uma análise de flambagem dentro do otimizador (SOL 105), e que possuíse o menor peso estrutural.
+
+Resumidamente, a otimização possuiu as seguintes características:
+\begin{itemize}
+\item Função objetivo: minimizar o peso da estrutura;
+\item Variáveis de projeto: espessura do revestimento e espessura do reforçador;
+\item Respostas de projeto: Cinco (5) primeiros autovalores da solução de flambagem;
+\item Restrições de projeto: Autovalores maiores que um (1);
+\item Soluções utilizadas: Otimização (SOL 200) e Análise de flambagem (SOL 105).
+\end{itemize}
+
+\section{Otimização de um painel reforçado em material composto}
+Após a realização da otimização do painel reforçado em material metálico, realizou-se a otimização de um painel reforçado em material composto utilizando o \emph{MSC Nastran}.
+
+\subsection{Modelo em elementos finitos}
+Similarmente ao modelo para o painel reforçado em material metálico, desenvolveu-se um modelo em elementos finitos de um painel reforçado em material composto, conforme \autoref{fig_StiffComposite} para realizar a análise de otimização.
+
+\begin{figure}[ht]
+ \caption{\label{fig_StiffComposite}Modelo do reforçador em material composto.}
+ \centering
+ \includegraphics[scale=0.7]{figura/StiffComposite}
+ \legend{Fonte: Femap}
+\end{figure}
+\
+
+Este modelo foi desenvolvido utilizando como material composto o carbono, mas com duas propriedades de materiais distintas. Sendo que tem-se um material exclusivamente para o revestimento e outro para a alma do reforçador. Já a base do reforçador é composta tanto pelo material do revestimento, quanto pelo material da alma do reforçador, conforme ilustrado na \autoref{fig_StiffCompositeMaterial}.
+
+\begin{figure}[ht]
+ \caption{\label{fig_StiffCompositeMaterial}Visualização do reforçador em material composto.}
+ \centering
+ \includegraphics[scale=0.7]{figura/StiffCompositeMaterial}
+ \legend{Fonte: Femap}
+\end{figure}
+\
+
+O modelo foi desenvolvido com elementos do tipo placa (\emph{PLATE}) para o reforçador e para o revestimento, e com duas propriedades distintas, sendo uma propriedade para o revestimento e outra propriedade para o reforçador. Portanto, tem-se uma dada espessura para o reforçador ($t_{w alma}$), uma espessura para o revestimento (t) e uma espessura para a base do reforçador ($t_{w base}$) que é uma relação entre a espessura da alma do reforçador e a espessura do revestimento.
+
+Optou-se por modelar a base do refoçador de material composto visando fazer a conexão entre as propriedades dos materiais da alma do reforçador e do revestimento.
+
+O painel reforçado foi modelado utilizando somente a idealização de um reforçador, as condições de contorno aplicadas no modelo de elementos finitos de reforçador em material composto são as mesmas que foram aplicadas no modelo do reforçador em material metálico, conforme mostrado na (adicionar figura). %\autoref{fig_StiffMetalConst}.
+
+Em relação ao carregamento do aplicado no modelo, definiu-se que o painel reforçado estaria submetido somente a uma carga de compressão, sem cisalhamento. E portanto, aplicou-se essa carga de compressão igualmente àquela aplicada no modelo do reforçador de material metálico, conforme mostrado na \autoref{fig_StiffMetalLoad}. Utilizou-se um elemento rígido do tipo RBE2 para distribuir a carga igualmente nos nós dos elementos de placa que situam-se em uma extremidade do reforçador.
+
+\subsection{Otimização}
 Em relaçao a otimização, buscou-se como objetivo minimizar o peso da estrutura. Portanto, durante a solução de otimização, mateve-se a carga de compressão constante e variou-se as espessuras do revestimento e do reforçador. Buscou-se, então, uma estrutura que suportasse a carga de compressão, utilizando uma análise de flambagem dentro do otimizador (SOL 105), e que possuíse o menor peso estrutural.
 
 Resumidamente, a otimização possuiu as seguintes características:

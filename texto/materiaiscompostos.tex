@@ -278,6 +278,7 @@ Os parâmetros de laminação, segundo \cite{tsai1968invariant}, propiciam uma r
 \end{figure}
 
 Seguindo a metodologia para utilização dos parâmetros de laminação apresentada por \cite{miki1991optimum} e tendo como referência a \autoref{fig_stacking} considera-se uma sequência de laminação, em que cada lâmina é ortotrópica, como segue:
+
 \begin{equation} \label{stacking}
 [(\pm\theta_n)_{Nn}/\dots(\pm\theta_2)_{N2}/(\pm\theta_1)_{N1}]_s
 \end{equation}
@@ -285,6 +286,7 @@ Seguindo a metodologia para utilização dos parâmetros de laminação apresent
 Segundo \cite{miki1991optimum}, os parâmetros de laminação são boas ferramentas para serem utilizadas como variáveis de projeto ao desenvolver um laminado, visto que é possível obter uma região viável dos parâmetros de laminação em um plano bidimensional. Quando tem-se um laminado simétrico e ortotrópico, a rigidez no plano (matriz A) e a rigidez flexural (matriz D) se tornam funções dos parâmetros de laminação, que são funções da sequência da laminação. E como este laminado é simétrico, a rigidez devido ao acoplamento no plano e a flexural (matriz B) é nula. Sabe-se que é possível através do método de utilizar parâmetros de laminação como variáveis de projeto, e obter pontos ótimos de projeto através de relações geométricas entre a região viável e a função objetivo do projeto.
 
 Sabe-se, conforme demonstrado na seção da Teoria Clássica da Laminação, que:
+
 \begin{equation} \label{ABD_definition}
 \begin{gathered}
 \begin{bmatrix}
@@ -302,8 +304,10 @@ Sabe-se, conforme demonstrado na seção da Teoria Clássica da Laminação, que
 \end{bmatrix}
 \end{gathered}
 \end{equation}
+
 Segundo \cite{liu2004maximization}, as matrizes de rigidez A, B e D mostradas acima podem ser expressas em função dos invariantes de rigidez dos materiais $\emph{U}$ e de 12 parâmetros de laminação $\xi$ \cite{tsai1968invariant}. Considerando o laminado simétrico, a matriz de acoplamento de rigidez B será nula e então, o número de parâmetros de laminação será reduzido para 8. Considerando ainda, como prática de projeto adotada por vários fabricantes, que as lâminas são ortotrópicas e podem ter somente 0$^{\circ}$/$\pm$45$^{\circ}$/90$^{\circ}$ como ângulos de laminação, os parâmetros de laminação são reduzidos para 6. Tem-se, portanto, as seguintes expressões para a rigidez no plano e para a rigidez flexural:
 \begin{equation} \label{A_matrix}
+\begin{gathered}
 \begin{bmatrix}
     A_{11} \\A_{12} \\A_{22} \\A_{66} \\A_{16} \\A_{26} \\
 \end{bmatrix}
@@ -317,9 +321,7 @@ Segundo \cite{liu2004maximization}, as matrizes de rigidez A, B e D mostradas ac
 \end{bmatrix}
 \begin{bmatrix}
     U_1\\U_2 \\U_3 \\U_4 \\U_5
-\end{bmatrix}\\
-\end{equation}
-\begin{equation} \label{D_matrix}
+\end{bmatrix}\\~\\
 \begin{bmatrix}
     D_{11} \\D_{12} \\D_{22} \\D_{66} \\D_{16} \\D_{26} \\
 \end{bmatrix}
@@ -335,7 +337,9 @@ Segundo \cite{liu2004maximization}, as matrizes de rigidez A, B e D mostradas ac
 \begin{bmatrix}
     U_1\\  U_2 \\ U_3 \\ U_4 \\ U_5
 \end{bmatrix}
+\end{gathered}
 \end{equation}
+
 As propriedades de rigidez $\emph{Q}$ são dadas por:
 \begin{equation} \label{Q_properties}
 \begin{gathered}
@@ -346,38 +350,32 @@ Q_{21}=Q_{12}\\~\\
 Q_{66}=G_{12}\\~\\
 \nu_{21}=\nu_{12}\frac{E_{22}}{E_{11}}
 \end{gathered}
-\end{equation}
+\end{equation}\
 
 E tem-se que os parâmetros de laminação relacionados ao plano $\xi^A_{[1, 2, 3]}$ e flexão $\xi^D_{[1, 2, 3]}$, são:
 \begin{equation}\label{qsiA}
 \begin{gathered}
-	\xi^A_{[1, 2, 3]} = \frac{1}{h}\int^{\frac{h}{2}}_{\frac{-h}{2}}[\cos2\varphi, \cos4\varphi, \sin2\varphi]dz
-\end{gathered}
-\end{equation}
-\begin{equation}\label{qsiD}
-\begin{gathered}
+	\xi^A_{[1, 2, 3]} = \frac{1}{h}\int^{\frac{h}{2}}_{\frac{-h}{2}}[\cos2\varphi, \cos4\varphi, \sin2\varphi]dz\\~\\
 	\xi^D_{[1, 2, 3]} = \frac{12}{h^3}\int^{\frac{h}{2}}_{\frac{-h}{2}}[\cos2\varphi, \cos4\varphi, \sin2\varphi]z^2dz
 \end{gathered}
+\end{equation}\
+
+Baseando-se nas equações \autoref{Q_properties} e \autoref{ABD_definition}, percebe-se que os parâmetros de laminação $\xi^D_3$ se relacionam com os termos $D_{16}$ e $D_{26}$ da matriz [D]. Estes termos não possuem uma contribuição significante para a análise e o critério de falha por flambagem que será avaliado, portanto, neste estudo o parâmetro $\xi^D_3$ será negligenciado. E como o laminado é simétrico e balanceado em relação ao plano médio o parâmetro de laminação $\xi^A_3$ também não será levado em consideração neste estudo, sobrando, portanto, os seguintes parâmetros de laminação que serão considerados durante a otimização do painel reforçado.
+\begin{equation}\label{LP_AeD}
+\begin{gathered}
+\xi^A_{1} = \frac{1}{h}\int^{\frac{h}{2}}_{\frac{-h}{2}}[\cos2\varphi]dz\\~\\
+\xi^A_{2} = \frac{1}{h}\int^{\frac{h}{2}}_{\frac{-h}{2}}[\cos4\varphi]dz\\~\\
+\xi^D_{1} = \frac{12}{h^3}\int^{\frac{h}{2}}_{\frac{-h}{2}}[\cos2\varphi]z^2dz\\~\\
+\xi^D_{2} = \frac{12}{h^3}\int^{\frac{h}{2}}_{\frac{-h}{2}}[\cos4\varphi]z^2dz
+\end{gathered}
 \end{equation}
 
-Ainda que os parâmetros de otimização permitam uma otimização contínua do laminado com um número de variáveis de projeto relativamente baixo, eles não permitem a associação das restrições com a natureza discreta da espessura em ângulos de laminação \cite{liu2004maximization}. Por exemplo, com a utilização desse método não é possível prever a acomodação de várias lâminas em sequência com uma mesma direção de ângulo de laminação. Portanto, após a obtenção da otimização do laminado utilizando os parâmetros de laminação, será necessário recorrer a um banco de dados de laminados para obter a solução discreta do laminado.
+Ainda que os parâmetros de laminação permitam uma otimização contínua do laminado com um número de variáveis de projeto relativamente baixo, eles não permitem a associação das restrições com a natureza discreta da espessura em ângulos de laminação \cite{liu2004maximization}. Por exemplo, com a utilização desse método não é possível prever a acomodação de várias lâminas em sequência com uma mesma direção de ângulo de laminação. Portanto, após a obtenção da otimização do laminado utilizando os parâmetros de laminação, será necessário recorrer a um banco de dados de laminados para obter a solução discreta do laminado.
 
+Resumidamente, tem-se, portanto, que a relação, originalmente, não-linear entre a rigidez de um laminado e a sequência de laminação discreta se torna linear quando as funções trigonométricas são substituídas pelos parâmetros de laminação. Comparando-se à sequência de laminação discreta, os parâmetros de laminação podem ser utilizados como variáveis contínuas e adimensionais dentro de uma otimização baseada no gradiente, conforme abordado nas seções seguintes.
 
-%\[
-%\begin{bmatrix}
-%    \xi_{11}^2       & x_{12} & x_{13} & \dots & x_{1n} \\
-%    x_{21}       & x_{22} & x_{23} & \dots & x_{2n} \\
-%    \hdotsfor{5} \\
-%    x_{d1}       & x_{d2} & x_{d3} & \dots & x_{dn}
-%\end{bmatrix}
-%=
-%\begin{bmatrix}
-%    x_{11} & x_{12} & x_{13} & \dots  & x_{1n} \\
-%    x_{21} & x_{22} & x_{23} & \dots  & x_{2n} \\
-%    \vdots & \vdots & \vdots & \ddots & \vdots \\
-%    x_{d1} & x_{d2} & x_{d3} & \dots  & x_{dn}
-%\end{bmatrix}
-%\]
+\subsection{Soma dos parâmetros de laminação}
+(ESCREVER SOBRE)
 
 \section{Práticas de projeto adotadas}
 Esta seção apresenta regras e práticas relevantes utilizadas durante o projeto de estruturas em materiais compostos na indústria aeronáutica.
