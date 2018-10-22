@@ -1,7 +1,7 @@
  \chapter[Metodologia]{Metodologia}
 
  \section{Desenvolvimento geral}
-Visando realizar a otimização estrutural de um painel reforçado utilizando os parâmetros de laminação, realizou-se uma sequência de passos conformo segue:
+Visando realizar a otimização estrutural de um painel reforçado utilizando os parâmetros de laminação, realizou-se uma sequência de passos conforme segue:
 \begin{enumerate}
   \item Análise teórica de um painel reforçado de material metálico utilizando a metodologia do \emph{Fator de Eficiência de Farrar} proposta por \cite{niu1997airframe}
   \item Otimização de um painel reforçado de material metálico utilizando o \emph{MSC Nastran} e comparação dos resultados obtidos com o resultado teórico obtido no item anterior. Nesta etapa visou-se obter a validação o método de otimização utilizado para assim poder aplicá-lo em outros paineis reforçados;
@@ -133,9 +133,17 @@ F = 1.314{\dfrac{{R_b}^3R_t(4+R_bR_t)^{0.25}}{(1+R_bR_t)}}({\frac{f_i}{f_o}})^{0
 \end{equation}
 
 \subsection{Limitação de projeto - Espaçamento entre reforçadores}
-Considerando um espaçamento entre reforçadores (b) já previamente determinado, devido ao modelo em elementos finitos que foi desenvolvido para as etapas de otimização, tem-se, portanto, uma limitação de projeto. Segundo \cite{niu1997airframe}, para manter o valor de largura entre reforçadores constante (b) e o valor de espessura do reforçador também constante ($t_w$), tem-se as seguintes equações, que também são plotadas na \autoref{fig_plotstiffener}.
+Considerando um espaçamento entre reforçadores (b) já previamente determinado, devido ao modelo em elementos finitos que foi desenvolvido para as etapas de otimização, tem-se, portanto, uma limitação de projeto. Segundo \cite{niu1997airframe}, para manter o valor de largura entre reforçadores constante (b) ou o valor de espessura do reforçador também constante ($t_w$), tem-se as seguintes relações, que também são plotadas na \autoref{fig_plotstiffener}.
 
-No caso deste estudo, considerou-se somente que a largura entre os reforçadores será constante, visando obter os outros parâmetros geométricos do painel reforçado ótimo.
+\begin{equation} \label{Farrar_Efficiency_J1}
+J_1 = b({\dfrac{E_t}{NL^3}})^{0.25}
+\end{equation}
+
+\begin{equation} \label{Farrar_Efficiency_J2}
+J_2 = t_w({\dfrac{E_t}{NL^3}})^{0.5}
+\end{equation}
+
+No caso deste estudo, considerou-se que a largura entre os reforçadores será constante, visando obter os outros parâmetros geométricos do painel reforçado ótimo.
 
 \begin{figure}[ht]
 	\caption{\label{fig_plotstiffener}Curvas para projetos com limitações - Espessura do reforçador ($t_w$) e largura do reforçador (b).}
@@ -145,20 +153,49 @@ No caso deste estudo, considerou-se somente que a largura entre os reforçadores
 \end{figure}
 \
 
-Visando, portanto, projetar um painel reforçado otimizado, seguindo a metodologia de \emph{Fator de Eficiência de Farrar} proposta por \cite{niu1997airframe}, submetido a uma carga de intensidade N, alguns passos foram seguidos.
+Visando, portanto, projetar um painel reforçado otimizado, seguindo a metodologia de \emph{Fator de Eficiência de Farrar} proposta por \cite{niu1997airframe}, submetido a uma carga de intensidade N (lbs/in), alguns passos foram seguidos:
 
 \begin{itemize}
 \item Utilização de valores otimizados \
-
-F=0.81; $R_t$=2.25; $R_b$=0.65z\
+F=0.81; $R_t$=2.25; $R_b$=0.65z;\
+\item Da \autoref{fig_plotFarrar}, encontrou-se o valor de "f" correspondente a carga por largura (N/L), utilizando F=0.81 para o Al 2024-T3 extrudado;
+\item Encontrou-se o módulo tangente $E_t$ correspondente ao valor de "f", da curva de módulo tangente do material, conforme \autoref{fig_tangentmodulus};
+\item Determinou-se os valores de t, b, $t_w$ e $b_w$, conforme \autoref{Farrar_Efficiency_t} e \autoref{Farrar_Efficiency_tw}.
+\begin{equation} \label{Farrar_Efficiency_t}
+t = 0.501({\dfrac{NL}{E_t}})^{0.5}
+\end{equation}
+\begin{equation} \label{Farrar_Efficiency_tw}
+t_w = 2.25t
+\end{equation}
 
 \end{itemize}
 
+\begin{figure}[ht]
+	\caption{\label{fig_tangentmodulus}Curva do módulo de elasticidade tangente para Al 2014-T3 extrudado.}
+  \centering
+  \includegraphics[scale=1.0]{figura/TangentModulus}
+	\legend{Fonte: \cite{niu1997airframe}}
+\end{figure}
+
 \section{Otimização de um painel reforçado em material metálico}
-Realizou-se uma otimização de um painel reforçado em material metálico utilizando o \emph{MSC Nastran}, para que após a validação do otimizador ele possa ser aplicado para outros tipos de paineis reforçados, como os em material composto.
+Realizou-se uma otimização de um painel reforçado em material metálico utilizando o \emph{MSC Nastran}, para que após a validação do otimizador ele pudesse ser aplicado para outros tipos de paineis reforçados, como os painéis em material composto.
 
 \subsection{Modelo em elementos finitos}
-Desenvolveu-se um modelo em elementos finitos de um painel reforçado, conforme \autoref{fig_StiffMetal} para realizar a análise de otimização. Este modelo foi desenvolvido utilizando somente um tipo de material, tanto para o revestimento quanto para o reforçador, que foi o Al, com as características conforme mostrado na %\autoref{fig_matmetal}.
+Desenvolveu-se um modelo em elementos finitos de um painel reforçado, conforme \autoref{fig_StiffMetal} para realizar a análise de otimização. Este modelo foi desenvolvido utilizando somente um tipo de material, tanto para o revestimento quanto para o reforçador (Al 2024 T3), com as características conforme mostrado na \autoref{tbl:prop_metalico}.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{ccc}
+\toprule
+& Propriedades Al 2024-T3 extrudado \\ \midrule
+Módulo de elasticidade (E) & $73.7$x$10^3N/mm^2$ & $10.7$x$10^3$ ksi \\
+Coeficiente de Poisson ($\nu$) & 0.33 & 0.33\\
+Densidade mássica ($\rho$)  & $2.8$x$10^{-3} g/mm^3$ & 0.1 $lb/in^3$ \\
+\bottomrule
+\end{tabular}
+\caption{Propriedades do material metálico. Fonte:\cite{rice2003metallic}}
+\label{tbl:prop_metalico}
+\end{table}
 
 \begin{figure}[ht]
 	\caption{\label{fig_StiffMetal}Modelo do reforçador em material metálico.}
@@ -168,9 +205,17 @@ Desenvolveu-se um modelo em elementos finitos de um painel reforçado, conforme 
 \end{figure}
 \
 
-O modelo foi desenvolvido com elementos do tipo placa (\emph{PLATE}) para o reforçador e para o revestimento, e com duas propriedades distintas, sendo uma propriedade para o revestimento e outra propriedade para o reforçador.
+O modelo foi desenvolvido com elementos do tipo placa (\emph{PLATE}) para o reforçador e para o revestimento, e com duas propriedades distintas, sendo uma propriedade para o revestimento e outra propriedade para o reforçador, visto que possuem espessuras diferentes.
 
-O painel reforçado foi modelado utilizando somente a idealização de um reforçador e para isso as seguintes condições de contorno foram aplicadas, conforme mostrado na (adicionar figura). %\autoref{fig_StiffMetalConst}.
+O painel reforçado foi modelado utilizando somente a idealização de um reforçador e para isso as seguintes condições de contorno foram aplicadas, conforme mostrado na (adicionar figura)%\autoref{fig_StiffMetalConst}.
+
+%begin{figure}[ht]
+%	\caption{\label{fig_StiffMetal}Condições de contorno aplicadas no painel reforçado.}
+%  \centering
+%  \includegraphics[scale=0.7]{figura/CondContorno}
+%	\legend{Fonte: Femap}
+%\end{figure}
+%\
 
 Em relação ao carregamento do aplicado no modelo, definiu-se que o painel reforçado estaria submetido somente a uma carga de compressão, sem cisalhamento. E portanto, aplicou-se essa carga de compressão conforme mostrado na \autoref{fig_StiffMetalLoad},
 utilizando um elemento rígido do tipo RBE2 para distribuir a carga igualmente nos nós dos elementos de placa que situam-se em uma extremidade do reforçador.
@@ -191,7 +236,7 @@ Resumidamente, a otimização possuiu as seguintes características:
 \item Função objetivo: minimizar o peso da estrutura;
 \item Variáveis de projeto: espessura do revestimento e espessura do reforçador;
 \item Respostas de projeto: Cinco (5) primeiros autovalores da solução de flambagem;
-\item Restrições de projeto: Autovalores maiores que um (1);
+\item Restrições de projeto: Autovalores maiores que um (1), ou seja, maiores que a carga aplicada;
 \item Soluções utilizadas: Otimização (SOL 200) e Análise de flambagem (SOL 105).
 \end{itemize}
 
@@ -215,7 +260,6 @@ Este modelo foi desenvolvido utilizando como material composto o carbono, mas co
  \caption{\label{fig_StiffCompositeMaterial}Visualização do reforçador em material composto.}
  \centering
  \includegraphics[scale=0.7]{figura/StiffCompositeMaterial}
- \legend{Fonte: Femap}
 \end{figure}
 \
 
@@ -228,13 +272,13 @@ O painel reforçado foi modelado utilizando somente a idealização de um refor�
 Em relação ao carregamento do aplicado no modelo, definiu-se que o painel reforçado estaria submetido somente a uma carga de compressão, sem cisalhamento. E portanto, aplicou-se essa carga de compressão igualmente àquela aplicada no modelo do reforçador de material metálico, conforme mostrado na \autoref{fig_StiffMetalLoad}. Utilizou-se um elemento rígido do tipo RBE2 para distribuir a carga igualmente nos nós dos elementos de placa que situam-se em uma extremidade do reforçador.
 
 \subsection{Otimização}
-Em relaçao a otimização, buscou-se como objetivo minimizar o peso da estrutura. Portanto, durante a solução de otimização, mateve-se a carga de compressão constante e variou-se as espessuras do revestimento e do reforçador. Buscou-se, então, uma estrutura que suportasse a carga de compressão, utilizando uma análise de flambagem dentro do otimizador (SOL 105), e que possuíse o menor peso estrutural.
+Em relaçao a otimização, buscou-se como objetivo minimizar o peso da estrutura. Portanto, durante a solução de otimização, mateve-se a carga de compressão constante e variou-se as espessuras do revestimento e do reforçador. Na otimização do painel reforçado, variou-se também os parâmetros de laminação tanto do revestimento, quanto do reforçador. Buscou-se, então, uma estrutura que suportasse a carga de compressão, utilizando uma análise de flambagem dentro do otimizador (SOL 105), e que possuíse o menor peso estrutural.
 
 Resumidamente, a otimização possuiu as seguintes características:
 \begin{itemize}
 \item Função objetivo: minimizar o peso da estrutura;
-\item Variáveis de projeto: espessura do revestimento e espessura do reforçador;
+\item Variáveis de projeto: espessura do revestimento, espessura do reforçador e os parâmetros de laminação do revestimento e do reforçador;
 \item Respostas de projeto: Cinco (5) primeiros autovalores da solução de flambagem;
-\item Restrições de projeto: Autovalores maiores que um (1);
+\item Restrições de projeto: Autovalores maiores que um (1), ou seja, maiores que a carga aplicada;
 \item Soluções utilizadas: Otimização (SOL 200) e Análise de flambagem (SOL 105).
 \end{itemize}
