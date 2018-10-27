@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6730 64-bit) (preloaded format=pdflatex 2018.7.9)  22 OCT 2018 17:29
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6730 64-bit) (preloaded format=pdflatex 2018.7.9)  27 OCT 2018 20:41
 entering extended mode
 **./main.tex
 (main.tex
@@ -1205,24 +1205,26 @@ File: figura/StiffMetal.jpg Graphic file (type jpg)
 Package pdftex.def Info: figura/StiffMetal.jpg  used on input line 203.
 (pdftex.def)             Requested size: 385.21153pt x 226.06804pt.
 [48 <./figura/TangentModulus.jpg>]
-<figura/StiffMetalLoad.jpg, id=644, 746.03719pt x 343.2825pt>
-File: figura/StiffMetalLoad.jpg Graphic file (type jpg)
-<use figura/StiffMetalLoad.jpg>
-Package pdftex.def Info: figura/StiffMetalLoad.jpg  used on input line 226.
-(pdftex.def)             Requested size: 522.22246pt x 240.2961pt.
-
-Overfull \hbox (67.22246pt too wide) in paragraph at lines 226--227
- [][] 
- []
+<figura/StiffMetalConst.jpg, id=644, 519.44063pt x 292.09125pt>
+File: figura/StiffMetalConst.jpg Graphic file (type jpg)
+<use figura/StiffMetalConst.jpg>
+Package pdftex.def Info: figura/StiffMetalConst.jpg  used on input line 215.
+(pdftex.def)             Requested size: 363.60596pt x 204.46246pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
+<figura/StiffMetalLoad.jpg, id=646, 542.77782pt x 316.93407pt>
+File: figura/StiffMetalLoad.jpg Graphic file (type jpg)
+<use figura/StiffMetalLoad.jpg>
+Package pdftex.def Info: figura/StiffMetalLoad.jpg  used on input line 226.
+(pdftex.def)             Requested size: 379.94188pt x 221.85233pt.
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+LaTeX Warning: `h' float specifier changed to `ht'.
 
- [49 <./figura/StiffMetal.jpg>] [50 <./figura/StiffMetalLoad.jpg>]
-<figura/StiffComposite.jpg, id=656, 746.03719pt x 343.2825pt>
+[49 <./figura/StiffMetal.jpg>] [50 <./figura/StiffMetalConst.jpg> <./figura/Sti
+ffMetalLoad.jpg>]
+<figura/StiffComposite.jpg, id=659, 746.03719pt x 343.2825pt>
 File: figura/StiffComposite.jpg Graphic file (type jpg)
 <use figura/StiffComposite.jpg>
 Package pdftex.def Info: figura/StiffComposite.jpg  used on input line 252.
@@ -1232,14 +1234,17 @@ Overfull \hbox (67.22246pt too wide) in paragraph at lines 252--253
  [][] 
  []
 
-<figura/StiffCompositeMaterial.jpg, id=658, 428.35031pt x 267.24844pt>
+[51 <./figura/StiffComposite.jpg>]
+<figura/StiffCompositeMaterial.jpg, id=666, 428.35031pt x 267.24844pt>
 File: figura/StiffCompositeMaterial.jpg Graphic file (type jpg)
 <use figura/StiffCompositeMaterial.jpg>
 Package pdftex.def Info: figura/StiffCompositeMaterial.jpg  used on input line 
 262.
 (pdftex.def)             Requested size: 299.84317pt x 187.07263pt.
-[51 <./figura/StiffComposite.jpg>] [52 <./figura/StiffCompositeMaterial.jpg>])
-(texto/resultados.tex [53] [54
+
+Underfull \vbox (badness 1990) has occurred while \output is active []
+
+ [52 <./figura/StiffCompositeMaterial.jpg>]) (texto/resultados.tex [53] [54
 
 ]
 Underfull \hbox (badness 10000) in paragraph at lines 12--13
@@ -1281,11 +1286,27 @@ Underfull \hbox (badness 10000) in paragraph at lines 29--30
 
  []
 
-[55]) (main.bbl (main.brf)
+[55]
+<figura/Model_Metallic1.jpg, id=692, 477.28313pt x 218.31563pt>
+File: figura/Model_Metallic1.jpg Graphic file (type jpg)
+<use figura/Model_Metallic1.jpg>
+Package pdftex.def Info: figura/Model_Metallic1.jpg  used on input line 46.
+(pdftex.def)             Requested size: 477.28195pt x 218.31508pt.
+
+Overfull \hbox (22.28195pt too wide) in paragraph at lines 46--47
+ [][] 
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[56 <./figura/Model_Metallic1.jpg>]) (main.bbl (main.brf)
 \tf@brf=\write5
 \openout5 = `main.brf'.
 
- [56]
+ [57] [58
+
+]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `\uppercase' on input line 3.
@@ -1293,9 +1314,7 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 bibitemlist
 ) 
 AED: lastpage setting LastPage
-[57
-
-]
+[59]
 \tf@toc=\write6
 \openout6 = `main.toc'.
 
@@ -1317,10 +1336,10 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 462.
 ### simple group (level 1) entered at line 117 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 14818 strings out of 492973
- 226214 string characters out of 3126693
- 399980 words of memory out of 3000000
- 18040 multiletter control sequences out of 15000+200000
+ 14838 strings out of 492973
+ 226636 string characters out of 3126693
+ 400413 words of memory out of 3000000
+ 18052 multiletter control sequences out of 15000+200000
  107992 words of font info for 139 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  44i,17n,38p,1557b,633s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1351,9 +1370,9 @@ ssbx10.pfb><C:/Users/ltsam/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public
 /lm/lmsy10.pfb><C:/Users/ltsam/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/pu
 blic/lm/lmsy6.pfb><C:/Users/ltsam/AppData/Local/Programs/MiKTeX 2.9/fonts/type1
 /public/lm/lmsy8.pfb>
-Output written on main.pdf (59 pages, 1643720 bytes).
+Output written on main.pdf (61 pages, 1705397 bytes).
 PDF statistics:
- 1028 PDF objects out of 1200 (max. 8388607)
- 231 named destinations out of 1000 (max. 500000)
- 32293 words of extra memory for PDF output out of 35830 (max. 10000000)
+ 1045 PDF objects out of 1200 (max. 8388607)
+ 237 named destinations out of 1000 (max. 500000)
+ 32303 words of extra memory for PDF output out of 35830 (max. 10000000)
 

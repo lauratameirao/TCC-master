@@ -157,7 +157,7 @@ Visando, portanto, projetar um painel reforçado otimizado, seguindo a metodolog
 
 \begin{itemize}
 \item Utilização de valores otimizados \
-F=0.81; $R_t$=2.25; $R_b$=0.65z;\
+F=0.81; $R_t$=2.25; $R_b$=0.65;\
 \item Da \autoref{fig_plotFarrar}, encontrou-se o valor de "f" correspondente a carga por largura (N/L), utilizando F=0.81 para o Al 2024-T3 extrudado;
 \item Encontrou-se o módulo tangente $E_t$ correspondente ao valor de "f", da curva de módulo tangente do material, conforme \autoref{fig_tangentmodulus};
 \item Determinou-se os valores de t, b, $t_w$ e $b_w$, conforme \autoref{Farrar_Efficiency_t} e \autoref{Farrar_Efficiency_tw}.
@@ -207,21 +207,21 @@ Densidade mássica ($\rho$)  & $2.8$x$10^{-3} g/mm^3$ & 0.1 $lb/in^3$ \\
 
 O modelo foi desenvolvido com elementos do tipo placa (\emph{PLATE}) para o reforçador e para o revestimento, e com duas propriedades distintas, sendo uma propriedade para o revestimento e outra propriedade para o reforçador, visto que possuem espessuras diferentes.
 
-O painel reforçado foi modelado utilizando somente a idealização de um reforçador e para isso as seguintes condições de contorno foram aplicadas, conforme mostrado na (adicionar figura)%\autoref{fig_StiffMetalConst}.
+O painel reforçado foi modelado utilizando somente a idealização de um reforçador e para isso as seguintes condições de contorno foram aplicadas, conforme mostrado na \autoref{fig_StiffMetalConst}.
 
-%begin{figure}[ht]
-%	\caption{\label{fig_StiffMetal}Condições de contorno aplicadas no painel reforçado.}
-%  \centering
-%  \includegraphics[scale=0.7]{figura/CondContorno}
-%	\legend{Fonte: Femap}
-%\end{figure}
-%\
+\begin{figure}[h]
+	\caption{\label{fig_StiffMetalConst}Condições de contorno aplicadas no modelo do reforçador.}
+  \centering
+  \includegraphics[scale=0.7]{figura/StiffMetalConst}
+	\legend{Fonte: Femap}
+\end{figure}
+\
 
 Em relação ao carregamento do aplicado no modelo, definiu-se que o painel reforçado estaria submetido somente a uma carga de compressão, sem cisalhamento. E portanto, aplicou-se essa carga de compressão conforme mostrado na \autoref{fig_StiffMetalLoad},
 utilizando um elemento rígido do tipo RBE2 para distribuir a carga igualmente nos nós dos elementos de placa que situam-se em uma extremidade do reforçador.
 
 \begin{figure}[h]
-	\caption{\label{fig_StiffMetalLoad}Carregamento aplicado no reforçador em material metálico.}
+	\caption{\label{fig_StiffMetalLoad}Carregamento aplicado no modelo do reforçador [10000daN].}
   \centering
   \includegraphics[scale=0.7]{figura/StiffMetalLoad}
 	\legend{Fonte: Femap}
@@ -235,8 +235,8 @@ Resumidamente, a otimização possuiu as seguintes características:
 \begin{itemize}
 \item Função objetivo: minimizar o peso da estrutura;
 \item Variáveis de projeto: espessura do revestimento e espessura do reforçador;
-\item Respostas de projeto: Cinco (5) primeiros autovalores da solução de flambagem;
-\item Restrições de projeto: Autovalores maiores que um (1), ou seja, maiores que a carga aplicada;
+\item Respostas de projeto: Cinco (5) primeiros autovalores da solução de flambagem (cargas de flambagem);
+\item Restrições de projeto: Autovalores maiores que um (1), ou seja, a estrutura flamba com valores maiores que 100\% da carga aplicada;
 \item Soluções utilizadas: Otimização (SOL 200) e Análise de flambagem (SOL 105).
 \end{itemize}
 
@@ -277,8 +277,8 @@ Em relaçao a otimização, buscou-se como objetivo minimizar o peso da estrutur
 Resumidamente, a otimização possuiu as seguintes características:
 \begin{itemize}
 \item Função objetivo: minimizar o peso da estrutura;
-\item Variáveis de projeto: espessura do revestimento, espessura do reforçador e os parâmetros de laminação do revestimento e do reforçador;
-\item Respostas de projeto: Cinco (5) primeiros autovalores da solução de flambagem;
-\item Restrições de projeto: Autovalores maiores que um (1), ou seja, maiores que a carga aplicada;
+\item Variáveis de projeto: espessura do revestimento e espessura do reforçador;
+\item Respostas de projeto: Cinco (5) primeiros autovalores da solução de flambagem (cargas de flambagem);
+\item Restrições de projeto: Autovalores maiores que um (1), ou seja, a estrutura flamba com valores maiores que 100\% da carga aplicada;
 \item Soluções utilizadas: Otimização (SOL 200) e Análise de flambagem (SOL 105).
 \end{itemize}
