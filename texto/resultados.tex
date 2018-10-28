@@ -34,7 +34,7 @@ Conforme \autoref{Farrar_Efficiency_t} e \autoref{Farrar_Efficiency_tw}, determi
 
 
 \subsection{Otimização do painel reforçado em material metálico}
-Desenvolveu-se um modelo de otimização do reforçador em material metálico, no qual, o material possuia as mesma propriedade de módulo de elasticidade (E) do modelo teórico. Para este modelo, encontrou-se o seguinte resultado:\
+Desenvolveu-se um modelo de otimização do reforçador em material metálico, no qual, o material possuia as mesmas propriedades de módulo de elasticidade (E) do modelo teórico. Para este modelo, encontrou-se o seguinte resultado:\
 
 \centerline{$t = 1.329 mm$}\
 
@@ -53,7 +53,7 @@ A tabela seguinte compara os resultados das espessuras do revestimento e do refo
 \centering
 \begin{tabular}{ccc}
 \toprule
-Modelo & Espessura do revestimento (mm) & Espessura do reforçador (mm) \\\midrule
+Modelo & Revestimento (mm) & Reforçador (mm) \\\midrule
 Teórico & 1.524 & 3.454\\
 Otimizado & 1.329 & 3.447\\
 \bottomrule
@@ -89,7 +89,60 @@ Esta seção está dividida em três subseções:
 \end{itemize}
 
 \subsection{Otimização do painel reforçado em material metálico}
+Desenvolveu-se um modelo de otimização do reforçador em material metálico, no qual, o material possuia as propriedades conforme mostrado na \autoref{tbl:prop_metalico}. Para este modelo, encontrou-se o seguinte resultado:\
+
+\centerline{$t = 3.092 mm$}\
+
+\centerline{$t_w = 2.165 mm$}\
+
+\centerline{$t_{wBase} = 4.174 mm$}\
+
+\begin{figure}[ht]
+ \caption{\label{fig_Result1Metallic}Resultado do reforçador em material metálico.}
+ \centering
+ \includegraphics[scale=0.7]{figura/Results_Metallic}
+\end{figure}
+\
+
+Em relação ao resultado da análise de flambagem, a \autoref{fig_Result2Metallic} mostra a resposta da estrutura com o primeiro autovalor encontrado para este reforçador em material metálico.
+
+\begin{figure}[ht]
+ \caption{\label{fig_Result2Metallic}Análise de flambagem do reforçador em material metálico ($\lambda_1 = 1.021$).}
+ \centering
+ \includegraphics[scale=0.7]{figura/Results2_Metallic}
+\end{figure}
+\
 
 \subsection{Otimização do painel reforçado em material composto}
+
+Desenvolveu-se um modelo de otimização do reforçador em material composto, no qual, os propriedades do material variavam com base na otimização dos parâmetros de laminação. Para este modelo, encontrou-se o seguinte resultado para as espessuras:\
+
+\centerline{$t = 2.928 mm$}\
+
+\centerline{$t_w = 2.611 mm$}\
+
+\centerline{$t_{wBase} = 4.234 mm$}\
+
+E encontrou-se o seguinte resultado para os parâmetros de laminação:\
+
+\centerline{$\xi^A_{1}= $}\
+
+
+
+\begin{figure}[ht]
+ \caption{\label{fig_Result1Composite}Resultado do reforçador em material composto.}
+ \centering
+ \includegraphics[scale=0.7]{figura/Results_Composite}
+\end{figure}
+\
+
+Em relação ao resultado da análise de flambagem, a \autoref{fig_Result2Composite} mostra a resposta da estrutura com o primeiro autovalor encontrado para este reforçador em material composto.
+
+\begin{figure}[ht]
+ \caption{\label{fig_Result2Composite}Análise de flambagem do reforçador em material composto ($\lambda_1 = 1.021$).}
+ \centering
+ \includegraphics[scale=0.7]{figura/Results2_Composite}
+\end{figure}
+\
 
 \subsection{Comparação dos resultados}
