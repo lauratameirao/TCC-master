@@ -48,7 +48,7 @@ Desenvolveu-se um modelo de otimização do reforçador em material metálico, n
 \
 
 \subsection{Comparação dos resultados}
-A tabela seguinte compara os resultados das espessuras do revestimento e do reforçador obtidas na análise do modelo teórico e do modelo otimizado.
+A \autoref{tbl:result1_metalico} seguinte compara os resultados das espessuras do revestimento e do reforçador obtidas na análise do modelo teórico e do modelo otimizado.
 \begin{table}[h]
 \centering
 \begin{tabular}{ccc}
@@ -62,7 +62,7 @@ Otimizado & 1.329 & 3.447\\
 \label{tbl:result1_metalico}
 \end{table}
 
-Tendo-se como base a geometria do reforçador e a densidade mássica do material considerado, calculou-se as massas das estruturas. E os resultados são conforme mostrado na tabela seguinte.
+Tendo-se como base a geometria do reforçador e a densidade mássica do material considerado, calculou-se as massas das estruturas. E os resultados são conforme mostrado na \autoref{tbl:result2_metalico}.
 
 \begin{table}[h]
 \centering
@@ -100,7 +100,7 @@ Desenvolveu-se um modelo de otimização do reforçador em material metálico, n
 \begin{figure}[ht]
  \caption{\label{fig_Result1Metallic}Resultado do reforçador em material metálico.}
  \centering
- \includegraphics[scale=0.7]{figura/Results_Metallic}
+ \includegraphics[scale=0.85]{figura/Results_Metallic}
 \end{figure}
 \
 
@@ -109,7 +109,7 @@ Em relação ao resultado da análise de flambagem, a \autoref{fig_Result2Metall
 \begin{figure}[ht]
  \caption{\label{fig_Result2Metallic}Análise de flambagem do reforçador em material metálico ($\lambda_1 = 1.021$).}
  \centering
- \includegraphics[scale=0.7]{figura/Results2_Metallic}
+ \includegraphics[scale=0.85]{figura/Results2_Metallic}
 \end{figure}
 \
 
@@ -125,14 +125,25 @@ Desenvolveu-se um modelo de otimização do reforçador em material composto, no
 
 E encontrou-se o seguinte resultado para os parâmetros de laminação:\
 
-\centerline{$\xi^A_{1}= $}\
-
+\begin{table}[h]
+\centering
+\begin{tabular}{ccccc}
+\toprule
+Estrutura & $\xi^A_{1}$ & $\xi^A_{2}$ & $\xi^D_{1}$ & $\xi^D_{2}$ \\ \midrule
+Reforçador & 0.3182 & 0.0348 & 0.0537 & -0.0625\\
+Revestimento & 0.2560 & 0.0529 & -0.0851 & -0.0913\\
+Base reforçador & 0.2853 & 0.0443 & 0.0215 & -0.199\\
+\bottomrule
+\end{tabular}
+\caption{Resultados dos parâmetros de laminação.}
+\label{tbl:result_qsis}
+\end{table}
 
 
 \begin{figure}[ht]
  \caption{\label{fig_Result1Composite}Resultado do reforçador em material composto.}
  \centering
- \includegraphics[scale=0.7]{figura/Results_Composite}
+ \includegraphics[scale=0.85]{figura/Results_Composite}
 \end{figure}
 \
 
@@ -141,8 +152,40 @@ Em relação ao resultado da análise de flambagem, a \autoref{fig_Result2Compos
 \begin{figure}[ht]
  \caption{\label{fig_Result2Composite}Análise de flambagem do reforçador em material composto ($\lambda_1 = 1.021$).}
  \centering
- \includegraphics[scale=0.7]{figura/Results2_Composite}
+ \includegraphics[scale=0.85]{figura/Results2_Composite}
 \end{figure}
 \
 
 \subsection{Comparação dos resultados}
+
+A \autoref{tbl:result1_composto} compara os resultados das espessuras do revestimento, do reforçador e da base do reforçador obtidas na otimização do modelo em material metálico e do modelo em material composto.
+\begin{table}[h]
+\centering
+\begin{tabular}{cccc}
+\toprule
+Modelo & Revestimento (mm) & Reforçador (mm) & Base do reforçador (mm) \\\midrule
+Metálico & 3.092 & 2.165 & 4.174 \\
+Composto & 2.928 & 2.611 & 4.234\\
+\bottomrule
+\end{tabular}
+\caption{Resultados de espessuras.}
+\label{tbl:result1_composto}
+\end{table}
+
+Tendo-se como base a geometria do reforçador e a densidade mássica dos materiais, sendo $\rho_{metal} =$ $2.8$x$10^{-3} g/mm^3$ e $\rho_{composto} =$ $1.56$x$10^{-3} g/mm^3$ calculou-se as massas das estruturas. E os resultados são conforme mostrado na \autoref{tbl:result2_composto}.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{cc}
+\toprule
+Modelo & Massa (kg) \\ \midrule
+Teórico & 0.551\\
+Otimizado & 0.309\\
+\bottomrule
+\end{tabular}
+\caption{Resultados de massa da estrutura.}
+\label{tbl:result2_composto}
+\end{table}
+
+Observa-se que foram encontradas espessuras e massas das estruturas diferentes, entre os modelos de otimização do reforçador em material metálico e o reforçador em material composto.
+Em relação a massa da estrutura, que era a função objetivo da otimização, a otimização do reforçador em material composto gerou um resultado de uma estrutura com a massa 43\% menor do que o reforçador em material composto. Isto mostra, portanto, que para a situação e modelo considerados, o reforçador em material composto é mais eficiente do que o reforçador em material metálico, visto que ambos suportam a mesma carga de flambagem, no entanto, o reforçador em material composto possui uma massa estrutural menor.
