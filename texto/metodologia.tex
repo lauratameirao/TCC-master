@@ -4,18 +4,18 @@
 Visando realizar a otimização estrutural de um painel reforçado utilizando os parâmetros de laminação, realizou-se uma sequência de passos conforme segue:
 \begin{enumerate}
   \item Análise teórica de um painel reforçado de material metálico utilizando a metodologia do \emph{Fator de Eficiência de Farrar} proposta por \cite{niu1997airframe}
-  \item Otimização de um painel reforçado de material metálico utilizando o \emph{MSC Nastran} e comparação dos resultados obtidos com o resultado teórico obtido no item anterior. Nesta etapa visou-se obter a validação o método de otimização utilizado para assim poder aplicá-lo em outros paineis reforçados;
+  \item Otimização de um painel reforçado de material metálico utilizando o \emph{MSC Nastran} e comparação dos resultados obtidos com o resultado teórico obtido no item anterior. O objetivo desta etapa era validar o método de otimização utilizado para assim poder aplicá-lo em outros painéis reforçados;
   \item Otimização de um painel reforçado de material composto utilizando o \emph{MSC Nastran} e comparação dos resultados obtidos com os resultados obtidos para um painel reforçado de material metálico.
 \end {enumerate}
 
 As seções seguintes descrevem a metodologia utilizada com mais detalhes e apresentam os modelos das otimizações realizadas e o capítulo seguinte contém os resultados obtidos.
 
 \section{Análise teórica de um painel reforçado}
-Visando realizar a análise teórica de um painel reforçado fabricado em material metálico, assume-se algumas proposições como segue e considera-se um painel conforme mostrado na \autoref{fig_StiffenedPanels}.
+Visando realizar a análise teórica de um painel reforçado fabricado em material metálico, assumem-se algumas hipóteses como segue e considera-se o painel conforme mostrado na \autoref{fig_StiffenedPanels}.
 
 \begin{itemize}
 \item Painel suficientemente largo para permitir que seja tratado como uma simples coluna, ou seja, não há restrições impostas nas bordas longitudinais do painel;
-\item O painel possui uma fixação de apoio no final da sua estrutura, em relação ao comprimento L. Deve-se levar em consideração este comprimento como sendo o o comprimento efetivo do painel, e não o comprimento da báia;
+\item O painel possui uma fixação de apoio no final da sua estrutura, em relação ao comprimento L. Deve-se levar em consideração este comprimento como sendo o o comprimento efetivo do painel, e não o comprimento do \emph{pocket};
 \item As nervuras não colocam restrições à flambagem.
 \end{itemize}
 
@@ -37,7 +37,7 @@ $t_w$ - Espessura do reforçador \
 
 $b_w$ - Altura do reforçador \
 
-$L$ - Comprimento efetivo \
+$L$ - Comprimento \
 \
 
 A \autoref{fig_InitialBuckling} mostra a tensão de flambagem inicial de diversas combinações de paineis reforçados, como razão entre $\dfrac{f_i}{f_o}$, considerando a seguinte notação.
@@ -66,7 +66,7 @@ Onde
 
 $N$ - Carga por unidade de comprimento do painel (lbs/in)\
 
-$E_t$ - Módulo tangente (psi)
+$E_t$ - Módulo de elasticidade tangente (psi)
 
 \begin{figure}[h]
 	\caption{\label{fig_plotFarrar}Tensão no painel \emph{vs.} índice estrutural $\dfrac{N}{L}$ para material Al 2024-T3.}
@@ -192,9 +192,10 @@ F=0.65; $R_t$=1.5;
 
 \item Da \autoref{fig_plotFarrar}, encontrou-se o valor de "f" correspondente a carga por largura (N/L), utilizando F=0.65 para o Al 2024-T3 extrudado;
 \item Encontrou-se o módulo tangente $E_t$ correspondente ao valor de "f", da curva de módulo tangente do material, conforme \autoref{fig_tangentmodulus};
-\item Determinou-se os valores de t, b, $t_w$ e $b_w$, conforme \autoref{Farrar_Efficiency_t} e \autoref{Farrar_Efficiency_tw}.
+\item Determinação de $J_4$ com base na \autoref{fig_plotstiffener2}, sendo F=0.65, $R_t$=1.5 e $R_b$=0.33.\
+\item Determinou-se os valores de t e $t_w$ conforme \autoref{Farrar_Efficiency_t} e \autoref{Farrar_Efficiency_tw}.
 \begin{equation} \label{Farrar_Efficiency_t}
-t = 0.501({\dfrac{NL}{E_t}})^{0.5}
+t = J_4({\dfrac{NL}{E_t}})^{0.5}
 \end{equation}
 \begin{equation} \label{Farrar_Efficiency_tw}
 t_w = 1.5t
@@ -220,7 +221,7 @@ Desenvolveu-se um modelo em elementos finitos de um painel reforçado, conforme 
 \begin{tabular}{ccc}
 \toprule
 & Propriedades Al 2024-T3 extrudado \\ \midrule
-Módulo de elasticidade (E) & $73.7$x$10^3N/mm^2$ & $10.7$x$10^3$ ksi \\
+Módulo de elasticidade tangente($E_t$) & $66.2$x$10^3N/mm^2$ & $9.16$x$10^3$ ksi \\
 Coeficiente de Poisson ($\nu$) & 0.33 & 0.33\\
 Densidade mássica ($\rho$)  & $2.8$x$10^{-3} g/mm^3$ & 0.1 $lb/in^3$ \\
 \bottomrule
@@ -253,7 +254,7 @@ Em relação ao carregamento do aplicado no modelo, definiu-se que o painel refo
 utilizando um elemento rígido do tipo RBE2 para distribuir a carga igualmente nos nós dos elementos de placa que situam-se em uma extremidade do reforçador.
 
 \begin{figure}[h]
-	\caption{\label{fig_StiffMetalLoad}Carregamento aplicado no modelo do reforçador [10000daN].}
+	\caption{\label{fig_StiffMetalLoad}Carregamento aplicado no modelo do reforçador [12000daN].}
   \centering
   \includegraphics[scale=0.7]{figura/StiffMetalLoad}
 	\legend{Fonte: Femap}
