@@ -148,24 +148,56 @@ No caso deste estudo, considerou-se que a largura entre os reforçadores será c
 \begin{figure}[ht]
 	\caption{\label{fig_plotstiffener}Curvas para projetos com limitações - Espessura do reforçador ($t_w$) e largura do reforçador (b).}
   \centering
-  \includegraphics[scale=1.0]{figura/PlotStiffener}
+  \includegraphics[scale=0.7]{figura/PlotStiffener}
 	\legend{Fonte: \cite{niu1997airframe}}
 \end{figure}
 \
 
+\subsection{Limitação de projeto - Altura do reforçador}
+Considerando uma altura de reforçador ($b_w$) já previamente determinada, devido ao modelo em elementos finitos que foi desenvolvido para as etapas de otimização, tem-se, portanto, mais uma limitação de projeto. Segundo \cite{niu1997airframe}, para manter o valor da altura do reforçador constante ($b_w$) ou o valor de espessura do revestimento também constante ($t$), tem-se as seguintes relações, que também são plotadas na \autoref{fig_plotstiffener2}.
+
+\begin{equation} \label{Farrar_Efficiency_J3}
+J_3 = b_w({\dfrac{E_t}{NL^3}})^{0.25}
+\end{equation}
+
+\begin{equation} \label{Farrar_Efficiency_J4}
+J_4 = t({\dfrac{E_t}{NL^3}})^{0.5}
+\end{equation}
+
+No caso deste estudo, considerou-se que a altura do reforçador será constante, visando obter os outros parâmetros geométricos do painel reforçado ótimo.
+
+\begin{figure}[ht]
+	\caption{\label{fig_plotstiffener2}Curvas para projetos com limitações - Altura do reforçador ($b_w$) e espessura do revestimento (t).}
+  \centering
+  \includegraphics[scale=0.8]{figura/PlotStiffener2}
+	\legend{Fonte: \cite{niu1997airframe}}
+\end{figure}
+\
+
+\subsection{Metodologia utilizando o Fator de Eficiência de Farrar}
+
 Visando, portanto, projetar um painel reforçado otimizado, seguindo a metodologia de \emph{Fator de Eficiência de Farrar} proposta por \cite{niu1997airframe}, submetido a uma carga de intensidade N (lbs/in), alguns passos foram seguidos:
 
 \begin{itemize}
-\item Utilização de valores otimizados \
-F=0.81; $R_t$=2.25; $R_b$=0.65;\
-\item Da \autoref{fig_plotFarrar}, encontrou-se o valor de "f" correspondente a carga por largura (N/L), utilizando F=0.81 para o Al 2024-T3 extrudado;
+\item Determinação de $R_b$ \
+
+Como há duas limitações de projeto, largura entre os reforçadores (b) e altura do reforçador ($b_w$), o valor de $R_b$ já está pré-determinado, sendo:
+
+$R_b$=0.33;\
+\item Determinação de $R_t$ e F\
+
+Com base na \autoref{fig_plotstiffener} e \autoref{fig_plotstiffener2}, para garantir as limitações de projeto determinadas, tem-se que:
+
+F=0.65; $R_t$=1.5;
+
+\item Da \autoref{fig_plotFarrar}, encontrou-se o valor de "f" correspondente a carga por largura (N/L), utilizando F=0.65 para o Al 2024-T3 extrudado;
 \item Encontrou-se o módulo tangente $E_t$ correspondente ao valor de "f", da curva de módulo tangente do material, conforme \autoref{fig_tangentmodulus};
 \item Determinou-se os valores de t, b, $t_w$ e $b_w$, conforme \autoref{Farrar_Efficiency_t} e \autoref{Farrar_Efficiency_tw}.
 \begin{equation} \label{Farrar_Efficiency_t}
 t = 0.501({\dfrac{NL}{E_t}})^{0.5}
 \end{equation}
 \begin{equation} \label{Farrar_Efficiency_tw}
-t_w = 2.25t
+t_w = 1.5t
 \end{equation}
 
 \end{itemize}
